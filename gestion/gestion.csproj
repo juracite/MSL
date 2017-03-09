@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0DFA3F3-54F0-4A7E-8339-A1820D8D28C4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>gestion</RootNamespace>
+    <AssemblyName>gestion</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>..\..\..\..\..\Downloads\ico_sys_internet.ico</ApplicationIcon>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=5.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cdata\AccesDB.cs" />
+    <Compile Include="cdata\personnelDb.cs" />
+    <Compile Include="cdata\serviceDb.cs" />
+    <Compile Include="cdata\vehiculeDb.cs" />
+    <Compile Include="cmetier\Personnel.cs" />
+    <Compile Include="cmetier\Service.cs" />
+    <Compile Include="cmetier\Vehicule.cs" />
+    <Compile Include="cvue\vAffectation\FormAffect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vAffectation\FormAffect.Designer.cs">
+      <DependentUpon>FormAffect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vPersonnel\formPersonnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vPersonnel\formPersonnel.Designer.cs">
+      <DependentUpon>formPersonnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vPersonnel\vAjout\formAddPersonnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vPersonnel\vAjout\formAddPersonnel.Designer.cs">
+      <DependentUpon>formAddPersonnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vPersonnel\vModif\formModifPersonnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vPersonnel\vModif\formModifPersonnel.Designer.cs">
+      <DependentUpon>formModifPersonnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vService\formService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vService\formService.Designer.cs">
+      <DependentUpon>formService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vService\vAjout\formAddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vService\vAjout\formAddService.Designer.cs">
+      <DependentUpon>formAddService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vVehicule\formVehicule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vVehicule\formVehicule.Designer.cs">
+      <DependentUpon>formVehicule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vVehicule\formVehiculeMarque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vVehicule\formVehiculeMarque.Designer.cs">
+      <DependentUpon>formVehiculeMarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FlatUI\FlatAlertBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatClose.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatColorPalette.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatColors.cs" />
+    <Compile Include="FlatUI\FlatComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatContextMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatMax.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatMini.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatNumeric.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatStatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatStickyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatToggle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FlatTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\FormSkin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FlatUI\Helpers.cs" />
+    <Compile Include="FlatUI\MouseState.cs" />
+    <Compile Include="Gestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestion.Designer.cs">
+      <DependentUpon>Gestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gestion.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="cvue\vAffectation\FormAffect.resx">
+      <DependentUpon>FormAffect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vPersonnel\formPersonnel.resx">
+      <DependentUpon>formPersonnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vPersonnel\vAjout\formAddPersonnel.resx">
+      <DependentUpon>formAddPersonnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vPersonnel\vModif\formModifPersonnel.resx">
+      <DependentUpon>formModifPersonnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vService\formService.resx">
+      <DependentUpon>formService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vService\vAjout\formAddService.resx">
+      <DependentUpon>formAddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vVehicule\formVehicule.resx">
+      <DependentUpon>formVehicule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vVehicule\formVehiculeMarque.resx">
+      <DependentUpon>formVehiculeMarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestion.resx">
+      <DependentUpon>Gestion.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Gestion1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="giphy.gif" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="cvue\vService\vModif\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,13 @@
+c:\users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.form_gestion.resources
+c:\users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.Properties.Resources.resources
+c:\users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.csproj.GenerateResource.Cache
+c:\users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.exe
+c:\users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.pdb
+C:\Users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.csprojResolveAssemblyReference.cache
+C:\Users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.cvue.vService.formService.resources
+C:\Users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.cvue.vPersonnel.formPersonnel.resources
+C:\Users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.cvue.vService.vAjout.formAddService.resources
+C:\Users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\bin\gestion.exe
+C:\Users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\bin\gestion.pdb
+C:\Users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.cvue.vPersonnel.vAjout.formAddPersonnel.resources
+C:\Users\y.leveille-menez\documents\visual studio 2010\Projects\gestion\gestion\obj\x86\Debug\gestion.cvue.vVehicule.formVehiculeMarque.resources
