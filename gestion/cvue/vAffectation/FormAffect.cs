@@ -53,6 +53,7 @@ namespace gestion.cvue.vAffectation
 
         private void _affectation_Annuler_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Voulez-vous vraiment annuler ? bah c'est trop tard :)");
             this.Close();
         }
     }
