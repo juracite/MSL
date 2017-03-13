@@ -24,6 +24,7 @@ namespace gestion.cvue.vAffectation
             {
                 _affect_marque.Items.Add(vehicule.Marque);
             }
+            _affect_marque.SelectedIndex = 0;
         }
 
         public FormAffect()
