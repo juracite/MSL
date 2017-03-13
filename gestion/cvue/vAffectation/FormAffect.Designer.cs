@@ -55,7 +55,7 @@
             // label_affect_marque
             // 
             this.label_affect_marque.AutoSize = true;
-            this.label_affect_marque.Location = new System.Drawing.Point(14, 48);
+            this.label_affect_marque.Location = new System.Drawing.Point(45, 78);
             this.label_affect_marque.Name = "label_affect_marque";
             this.label_affect_marque.Size = new System.Drawing.Size(49, 13);
             this.label_affect_marque.TabIndex = 43;
@@ -64,7 +64,7 @@
             // label_affect_prenom
             // 
             this.label_affect_prenom.AutoSize = true;
-            this.label_affect_prenom.Location = new System.Drawing.Point(14, 102);
+            this.label_affect_prenom.Location = new System.Drawing.Point(45, 132);
             this.label_affect_prenom.Name = "label_affect_prenom";
             this.label_affect_prenom.Size = new System.Drawing.Size(44, 13);
             this.label_affect_prenom.TabIndex = 41;
@@ -73,7 +73,7 @@
             // label_affect_modele
             // 
             this.label_affect_modele.AutoSize = true;
-            this.label_affect_modele.Location = new System.Drawing.Point(14, 75);
+            this.label_affect_modele.Location = new System.Drawing.Point(45, 105);
             this.label_affect_modele.Name = "label_affect_modele";
             this.label_affect_modele.Size = new System.Drawing.Size(48, 13);
             this.label_affect_modele.TabIndex = 39;
@@ -81,18 +81,21 @@
             // 
             // _affect_modele
             // 
+            this._affect_modele.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._affect_modele.Enabled = false;
             this._affect_modele.FormattingEnabled = true;
-            this._affect_modele.Location = new System.Drawing.Point(92, 72);
+            this._affect_modele.Location = new System.Drawing.Point(123, 102);
             this._affect_modele.Name = "_affect_modele";
             this._affect_modele.Size = new System.Drawing.Size(121, 21);
             this._affect_modele.TabIndex = 45;
+            this._affect_modele.SelectedIndexChanged += new System.EventHandler(this._affect_modele_SelectedIndexChanged);
             // 
             // _affect_marque
             // 
+            this._affect_marque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._affect_marque.Enabled = false;
             this._affect_marque.FormattingEnabled = true;
-            this._affect_marque.Location = new System.Drawing.Point(92, 45);
+            this._affect_marque.Location = new System.Drawing.Point(123, 75);
             this._affect_marque.Name = "_affect_marque";
             this._affect_marque.Size = new System.Drawing.Size(121, 21);
             this._affect_marque.TabIndex = 46;
@@ -100,25 +103,28 @@
             // 
             // _affect_annee
             // 
+            this._affect_annee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._affect_annee.Enabled = false;
             this._affect_annee.FormattingEnabled = true;
-            this._affect_annee.Location = new System.Drawing.Point(92, 99);
+            this._affect_annee.Location = new System.Drawing.Point(123, 129);
             this._affect_annee.Name = "_affect_annee";
             this._affect_annee.Size = new System.Drawing.Size(121, 21);
             this._affect_annee.TabIndex = 47;
             // 
             // _affect_combo_salarie
             // 
+            this._affect_combo_salarie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._affect_combo_salarie.FormattingEnabled = true;
-            this._affect_combo_salarie.Location = new System.Drawing.Point(92, 126);
+            this._affect_combo_salarie.Location = new System.Drawing.Point(123, 48);
             this._affect_combo_salarie.Name = "_affect_combo_salarie";
             this._affect_combo_salarie.Size = new System.Drawing.Size(121, 21);
             this._affect_combo_salarie.TabIndex = 49;
+            this._affect_combo_salarie.SelectedIndexChanged += new System.EventHandler(this._affect_combo_salarie_SelectedIndexChanged);
             // 
             // label_affect_salarie
             // 
             this.label_affect_salarie.AutoSize = true;
-            this.label_affect_salarie.Location = new System.Drawing.Point(13, 129);
+            this.label_affect_salarie.Location = new System.Drawing.Point(44, 51);
             this.label_affect_salarie.Name = "label_affect_salarie";
             this.label_affect_salarie.Size = new System.Drawing.Size(45, 13);
             this.label_affect_salarie.TabIndex = 48;
