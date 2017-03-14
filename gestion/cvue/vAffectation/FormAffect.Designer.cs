@@ -37,9 +37,9 @@
             this._affect_marque = new System.Windows.Forms.ComboBox();
             this._affect_annee = new System.Windows.Forms.ComboBox();
             this._affect_combo_salarie = new System.Windows.Forms.ComboBox();
-            this.label_affect_salarie = new System.Windows.Forms.Label();
+            this.label_combo_salarie = new System.Windows.Forms.Label();
             this._affectation_Annuler = new FlatUI.FlatButton();
-            this._affectation_Modif = new FlatUI.FlatButton();
+            this._affectation_affecter = new FlatUI.FlatButton();
             this.SuspendLayout();
             // 
             // label_header_modifpersonnel
@@ -121,14 +121,14 @@
             this._affect_combo_salarie.TabIndex = 49;
             this._affect_combo_salarie.SelectedIndexChanged += new System.EventHandler(this._affect_combo_salarie_SelectedIndexChanged);
             // 
-            // label_affect_salarie
+            // label_combo_salarie
             // 
-            this.label_affect_salarie.AutoSize = true;
-            this.label_affect_salarie.Location = new System.Drawing.Point(44, 51);
-            this.label_affect_salarie.Name = "label_affect_salarie";
-            this.label_affect_salarie.Size = new System.Drawing.Size(45, 13);
-            this.label_affect_salarie.TabIndex = 48;
-            this.label_affect_salarie.Text = "Salarié :";
+            this.label_combo_salarie.AutoSize = true;
+            this.label_combo_salarie.Location = new System.Drawing.Point(44, 51);
+            this.label_combo_salarie.Name = "label_combo_salarie";
+            this.label_combo_salarie.Size = new System.Drawing.Size(45, 13);
+            this.label_combo_salarie.TabIndex = 48;
+            this.label_combo_salarie.Text = "Salarie :";
             // 
             // _affectation_Annuler
             // 
@@ -145,20 +145,20 @@
             this._affectation_Annuler.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this._affectation_Annuler.Click += new System.EventHandler(this._affectation_Annuler_Click);
             // 
-            // _affectation_Modif
+            // _affectation_affecter
             // 
-            this._affectation_Modif.BackColor = System.Drawing.Color.Transparent;
-            this._affectation_Modif.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this._affectation_Modif.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._affectation_Modif.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._affectation_Modif.Location = new System.Drawing.Point(12, 167);
-            this._affectation_Modif.Name = "_affectation_Modif";
-            this._affectation_Modif.Rounded = false;
-            this._affectation_Modif.Size = new System.Drawing.Size(106, 32);
-            this._affectation_Modif.TabIndex = 0;
-            this._affectation_Modif.Text = "Modifier";
-            this._affectation_Modif.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this._affectation_Modif.Click += new System.EventHandler(this._affectation_Modif_Click);
+            this._affectation_affecter.BackColor = System.Drawing.Color.Transparent;
+            this._affectation_affecter.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this._affectation_affecter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._affectation_affecter.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this._affectation_affecter.Location = new System.Drawing.Point(12, 167);
+            this._affectation_affecter.Name = "_affectation_affecter";
+            this._affectation_affecter.Rounded = false;
+            this._affectation_affecter.Size = new System.Drawing.Size(106, 32);
+            this._affectation_affecter.TabIndex = 0;
+            this._affectation_affecter.Text = "Affecter";
+            this._affectation_affecter.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this._affectation_affecter.Click += new System.EventHandler(this._affectation_affecter_Click);
             // 
             // FormAffect
             // 
@@ -166,7 +166,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 211);
             this.Controls.Add(this._affect_combo_salarie);
-            this.Controls.Add(this.label_affect_salarie);
+            this.Controls.Add(this.label_combo_salarie);
             this.Controls.Add(this._affect_annee);
             this.Controls.Add(this._affect_marque);
             this.Controls.Add(this._affect_modele);
@@ -175,7 +175,7 @@
             this.Controls.Add(this.label_affect_modele);
             this.Controls.Add(this.label_header_modifpersonnel);
             this.Controls.Add(this._affectation_Annuler);
-            this.Controls.Add(this._affectation_Modif);
+            this.Controls.Add(this._affectation_affecter);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAffect";
             this.Text = "Affectation vehicule";
@@ -186,7 +186,7 @@
 
         #endregion
 
-        private FlatUI.FlatButton _affectation_Modif;
+        private FlatUI.FlatButton _affectation_affecter;
         private FlatUI.FlatButton _affectation_Annuler;
         private System.Windows.Forms.Label label_header_modifpersonnel;
         private System.Windows.Forms.Label label_affect_marque;
@@ -196,6 +196,6 @@
         private System.Windows.Forms.ComboBox _affect_marque;
         private System.Windows.Forms.ComboBox _affect_annee;
         private System.Windows.Forms.ComboBox _affect_combo_salarie;
-        private System.Windows.Forms.Label label_affect_salarie;
+        private System.Windows.Forms.Label label_combo_salarie;
     }
 }

@@ -44,9 +44,11 @@ namespace gestion.cvue.vAffectation
                 _affect_modele.Items.Add(vehicule_modele.Modele);
             }
 
+            /*
             List<cmetier.Vehicule> list_vehicules_annee = new List<cmetier.Vehicule>();
             try
             {
+                MessageBox.Show(_affect_marque.SelectedItem.ToString());
                 list_vehicules_annee = vehiculedb.getDistinctVehiculesAnnee(_affect_marque.SelectedItem.ToString(), _affect_modele.SelectedItem.ToString());
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
@@ -57,6 +59,7 @@ namespace gestion.cvue.vAffectation
             {
                 _affect_modele.Items.Add(vehicule_annee.Annee);
             }
+            */
         }
 
         public FormAffect()
@@ -78,7 +81,7 @@ namespace gestion.cvue.vAffectation
             }
         }
 
-        private void _affectation_Modif_Click(object sender, EventArgs e)
+        private void _affectation_affecter_Click(object sender, EventArgs e)
         {
             try
             {
@@ -111,7 +114,7 @@ namespace gestion.cvue.vAffectation
 
             foreach (cmetier.Vehicule vehicule_annee in list_vehicules_annee)
             {
-                _affect_modele.Items.Add(vehicule_annee.Annee);
+                _affect_annee.Items.Add(vehicule_annee.Annee);
             }
         }
     }
