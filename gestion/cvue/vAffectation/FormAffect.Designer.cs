@@ -38,6 +38,8 @@
             this._affect_annee = new System.Windows.Forms.ComboBox();
             this._affect_combo_salarie = new System.Windows.Forms.ComboBox();
             this.label_combo_salarie = new System.Windows.Forms.Label();
+            this._affect_immatriculation = new System.Windows.Forms.ComboBox();
+            this.label_affect_immatriculation = new System.Windows.Forms.Label();
             this._affectation_Annuler = new FlatUI.FlatButton();
             this._affectation_affecter = new FlatUI.FlatButton();
             this.SuspendLayout();
@@ -130,13 +132,31 @@
             this.label_combo_salarie.TabIndex = 48;
             this.label_combo_salarie.Text = "Salarie :";
             // 
+            // _affect_immatriculation
+            // 
+            this._affect_immatriculation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._affect_immatriculation.FormattingEnabled = true;
+            this._affect_immatriculation.Location = new System.Drawing.Point(123, 156);
+            this._affect_immatriculation.Name = "_affect_immatriculation";
+            this._affect_immatriculation.Size = new System.Drawing.Size(121, 21);
+            this._affect_immatriculation.TabIndex = 51;
+            // 
+            // label_affect_immatriculation
+            // 
+            this.label_affect_immatriculation.AutoSize = true;
+            this.label_affect_immatriculation.Location = new System.Drawing.Point(34, 159);
+            this.label_affect_immatriculation.Name = "label_affect_immatriculation";
+            this.label_affect_immatriculation.Size = new System.Drawing.Size(83, 13);
+            this.label_affect_immatriculation.TabIndex = 50;
+            this.label_affect_immatriculation.Text = "Immatriculation :";
+            // 
             // _affectation_Annuler
             // 
             this._affectation_Annuler.BackColor = System.Drawing.Color.Transparent;
             this._affectation_Annuler.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this._affectation_Annuler.Cursor = System.Windows.Forms.Cursors.Hand;
             this._affectation_Annuler.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._affectation_Annuler.Location = new System.Drawing.Point(166, 167);
+            this._affectation_Annuler.Location = new System.Drawing.Point(166, 199);
             this._affectation_Annuler.Name = "_affectation_Annuler";
             this._affectation_Annuler.Rounded = false;
             this._affectation_Annuler.Size = new System.Drawing.Size(106, 32);
@@ -151,7 +171,7 @@
             this._affectation_affecter.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this._affectation_affecter.Cursor = System.Windows.Forms.Cursors.Hand;
             this._affectation_affecter.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this._affectation_affecter.Location = new System.Drawing.Point(12, 167);
+            this._affectation_affecter.Location = new System.Drawing.Point(12, 199);
             this._affectation_affecter.Name = "_affectation_affecter";
             this._affectation_affecter.Rounded = false;
             this._affectation_affecter.Size = new System.Drawing.Size(106, 32);
@@ -164,7 +184,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 211);
+            this.ClientSize = new System.Drawing.Size(284, 243);
+            this.Controls.Add(this._affect_immatriculation);
+            this.Controls.Add(this.label_affect_immatriculation);
             this.Controls.Add(this._affect_combo_salarie);
             this.Controls.Add(this.label_combo_salarie);
             this.Controls.Add(this._affect_annee);
@@ -197,5 +219,7 @@
         private System.Windows.Forms.ComboBox _affect_annee;
         private System.Windows.Forms.ComboBox _affect_combo_salarie;
         private System.Windows.Forms.Label label_combo_salarie;
+        private System.Windows.Forms.ComboBox _affect_immatriculation;
+        private System.Windows.Forms.Label label_affect_immatriculation;
     }
 }

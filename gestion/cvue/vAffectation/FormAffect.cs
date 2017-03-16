@@ -91,7 +91,6 @@ namespace gestion.cvue.vAffectation
             {
                 MessageBox.Show(ex.ToString());
             }
-
         }
 
         private void _affectation_Annuler_Click(object sender, EventArgs e)
