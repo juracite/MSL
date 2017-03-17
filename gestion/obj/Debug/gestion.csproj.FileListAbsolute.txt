@@ -16,3 +16,5 @@ C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.cvue.vVehicule.formVehicule.resources
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.cvue.vPersonnel.vModif.formModifPersonnel.resources
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.cvue.vAffectation.FormAffect.resources
+C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.cvue.vVehicule.vListeEntretien.formEntretienListe.resources
+C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.cvue.vVehicule.vRdv.formRendezvous.resources

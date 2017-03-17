@@ -41,6 +41,8 @@
             this.véhiculeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gérerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.affectationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entretienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeEntretiensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechercherToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.strip_menu.SuspendLayout();
@@ -126,6 +128,7 @@
             this.véhiculeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gérerToolStripMenuItem1,
             this.affectationToolStripMenuItem,
+            this.entretienToolStripMenuItem,
             this.rechercherToolStripMenuItem1});
             this.véhiculeToolStripMenuItem.Name = "véhiculeToolStripMenuItem";
             this.véhiculeToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
@@ -134,21 +137,36 @@
             // gérerToolStripMenuItem1
             // 
             this.gérerToolStripMenuItem1.Name = "gérerToolStripMenuItem1";
-            this.gérerToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.gérerToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.gérerToolStripMenuItem1.Text = "Gérer";
             this.gérerToolStripMenuItem1.Click += new System.EventHandler(this.gérerToolStripMenuItem1_Click);
             // 
             // affectationToolStripMenuItem
             // 
             this.affectationToolStripMenuItem.Name = "affectationToolStripMenuItem";
-            this.affectationToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.affectationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.affectationToolStripMenuItem.Text = "Affectation";
             this.affectationToolStripMenuItem.Click += new System.EventHandler(this.affectationToolStripMenuItem_Click);
+            // 
+            // entretienToolStripMenuItem
+            // 
+            this.entretienToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listeEntretiensToolStripMenuItem});
+            this.entretienToolStripMenuItem.Name = "entretienToolStripMenuItem";
+            this.entretienToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entretienToolStripMenuItem.Text = "Entretien";
+            // 
+            // listeEntretiensToolStripMenuItem
+            // 
+            this.listeEntretiensToolStripMenuItem.Name = "listeEntretiensToolStripMenuItem";
+            this.listeEntretiensToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.listeEntretiensToolStripMenuItem.Text = "Liste Entretiens";
+            this.listeEntretiensToolStripMenuItem.Click += new System.EventHandler(this.listeEntretiensToolStripMenuItem_Click);
             // 
             // rechercherToolStripMenuItem1
             // 
             this.rechercherToolStripMenuItem1.Name = "rechercherToolStripMenuItem1";
-            this.rechercherToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.rechercherToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.rechercherToolStripMenuItem1.Text = "Rechercher";
             // 
             // pictureBox1
@@ -199,7 +217,8 @@
         private System.Windows.Forms.ToolStripMenuItem affectationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rechercherToolStripMenuItem1;
         private System.Windows.Forms.PictureBox pictureBox1;
-
+        private System.Windows.Forms.ToolStripMenuItem entretienToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listeEntretiensToolStripMenuItem;
     }
 }
 

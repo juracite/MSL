@@ -77,5 +77,11 @@ namespace gestion
             cvue.vAffectation.FormAffect formAffect = new cvue.vAffectation.FormAffect();
             formAffect.Show();
         }
+
+        private void listeEntretiensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cvue.vVehicule.vListeEntretien.formEntretienListe formEnt = new cvue.vVehicule.vListeEntretien.formEntretienListe();
+            formEnt.Show();
+        }
     }
 }
