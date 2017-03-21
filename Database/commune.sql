@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 13 Mars 2017 à 16:00
+-- Généré le: Mar 21 Mars 2017 à 10:14
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -35,6 +35,19 @@ CREATE TABLE IF NOT EXISTS `conduire` (
   KEY `immatriculation` (`immatriculation`),
   KEY `id_salarie` (`id_salarie`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `entretien_type`
+--
+
+CREATE TABLE IF NOT EXISTS `entretien_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(100) NOT NULL,
+  `nbKm` int(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -7442,6 +7455,7 @@ INSERT INTO `personnel` (`id`, `prenom`, `nom`, `mail`, `login`, `password`, `id
 CREATE TABLE IF NOT EXISTS `rdv_entretien` (
   `id_rdv` int(11) NOT NULL AUTO_INCREMENT,
   `idEntretienType` int(4) NOT NULL,
+  `nbKmCompteur` int(11) NOT NULL,
   `date` date NOT NULL,
   `heure` time NOT NULL,
   `commentaire` text NOT NULL,
@@ -7528,6 +7542,12 @@ INSERT INTO `service` (`type_service`, `libelle_service`) VALUES
 CREATE TABLE IF NOT EXISTS `vehicules` (
   `id_vehicule` int(10) NOT NULL AUTO_INCREMENT,
   `immatriculation` varchar(8) NOT NULL,
+  `dateAchat` date NOT NULL,
+  `nbKmCompteur` int(11) NOT NULL,
+  `motorisation` varchar(50) NOT NULL,
+  `idModele` int(11) NOT NULL,
+  `idSalarie` int(11) NOT NULL,
+  `nbKmLastEntretien` int(11) NOT NULL,
   PRIMARY KEY (`id_vehicule`),
   KEY `id_vehicule` (`id_vehicule`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
@@ -7536,9 +7556,9 @@ CREATE TABLE IF NOT EXISTS `vehicules` (
 -- Contenu de la table `vehicules`
 --
 
-INSERT INTO `vehicules` (`id_vehicule`, `immatriculation`) VALUES
-(0, 'N/A'),
-(20, 'NA765OQ');
+INSERT INTO `vehicules` (`id_vehicule`, `immatriculation`, `dateAchat`, `nbKmCompteur`, `motorisation`, `idModele`, `idSalarie`, `nbKmLastEntretien`) VALUES
+(0, 'N/A', '0000-00-00', 0, 'Diesel', 0, 0, 0),
+(20, 'NA765OQ', '1982-01-01', 30000, 'Diesel', 181, 6, 0);
 
 --
 -- Contraintes pour les tables exportées
