@@ -48,7 +48,7 @@ namespace gestion.cvue.vPersonnel.vModif
 
         private void button_personnel_annuler_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void button_personnel_modifier_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace gestion.cvue.vPersonnel.vModif
             try
             {
                 personnel.updateSalarie(id, _personnel_nom.Text, _personnel_prenom.Text, _personnel_mail.Text, combo_personnel_service.Text);
-                this.Close();
+                Close();
             }
             catch(MySqlException ex)
             {

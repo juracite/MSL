@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEntretienListe));
             this.label_header_listeEntretien = new FlatUI.FlatLabel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_entretien = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_entretien_rdv = new FlatUI.FlatButton();
             this.button_entretien_annuler = new FlatUI.FlatButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_entretien)).BeginInit();
             this.SuspendLayout();
             // 
             // label_header_listeEntretien
@@ -50,18 +50,18 @@
             this.label_header_listeEntretien.TabIndex = 0;
             this.label_header_listeEntretien.Text = "Liste des véhicules à entretenir";
             // 
-            // dataGridView1
+            // dgv_entretien
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_entretien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_entretien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.imma});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 54);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(536, 243);
-            this.dataGridView1.TabIndex = 1;
+            this.dgv_entretien.Location = new System.Drawing.Point(12, 54);
+            this.dgv_entretien.MultiSelect = false;
+            this.dgv_entretien.Name = "dgv_entretien";
+            this.dgv_entretien.RowHeadersVisible = false;
+            this.dgv_entretien.Size = new System.Drawing.Size(536, 243);
+            this.dgv_entretien.TabIndex = 1;
             // 
             // id
             // 
@@ -112,12 +112,12 @@
             this.ClientSize = new System.Drawing.Size(560, 370);
             this.Controls.Add(this.button_entretien_annuler);
             this.Controls.Add(this.button_entretien_rdv);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_entretien);
             this.Controls.Add(this.label_header_listeEntretien);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formEntretienListe";
             this.Text = "Entretien des véhicules";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_entretien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,7 +126,7 @@
         #endregion
 
         private FlatUI.FlatLabel label_header_listeEntretien;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_entretien;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn imma;
         private FlatUI.FlatButton button_entretien_rdv;

@@ -9,21 +9,23 @@ namespace gestion.cmetier
     class Entretien
     {
         int id, nbKmCpt, nbKmDernierEnt, idEntType, idRdv;
-        string commentaire, entLibelle, imma, dateEnt, dateAchat, dateRdv;
+        string commentaire, entLibelle, imma;
+        DateTime dateEnt, dateAchat, dateRdv;
 
-        public Entretien(int id, int nbKmCpt, int nbKmDernierEnt, int idEntType, int idRdv, string commentaire, string entLibelle, string imma, string dateEnt, string dateAchat, string dateRdv)
+      
+        public Entretien(int id, int nbKmCpt, int nbKmDernierEnt, int idEntType, int idRdv, string commentaire, string entLibelle, string imma, DateTime dateEnt, DateTime dateAchat, DateTime dateRdv)
         {
-            this.Id = id;
-            this.NbKmCpt = nbKmCpt;
-            this.NbKmDernierEnt = nbKmDernierEnt;
-            this.IdEntType = idEntType;
-            this.IdRdv = idRdv;
-            this.Commentaire = commentaire;
-            this.EntLibelle = entLibelle;
-            this.Imma = imma;
-            this.DateEnt = dateEnt;
-            this.DateAchat = dateAchat;
-            this.DateRdv = dateRdv;
+            this.id = id;
+            this.nbKmCpt = nbKmCpt;
+            this.nbKmDernierEnt = nbKmDernierEnt;
+            this.idEntType = idEntType;
+            this.idRdv = idRdv;
+            this.commentaire = commentaire;
+            this.entLibelle = entLibelle;
+            this.imma = imma;
+            this.dateEnt = dateEnt;
+            this.dateAchat = dateAchat;
+            this.dateRdv = dateRdv;
         }
 
         public int Id
@@ -130,7 +132,7 @@ namespace gestion.cmetier
             }
         }
 
-        public string DateEnt
+        public DateTime DateEnt
         {
             get
             {
@@ -143,7 +145,7 @@ namespace gestion.cmetier
             }
         }
 
-        public string DateAchat
+        public DateTime DateAchat
         {
             get
             {
@@ -156,7 +158,7 @@ namespace gestion.cmetier
             }
         }
 
-        public string DateRdv
+        public DateTime DateRdv
         {
             get
             {
@@ -168,5 +170,6 @@ namespace gestion.cmetier
                 dateRdv = value;
             }
         }
+
     }
 }

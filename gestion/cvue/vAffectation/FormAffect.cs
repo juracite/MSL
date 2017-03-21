@@ -95,7 +95,7 @@ namespace gestion.cvue.vAffectation
 
         private void _affectation_Annuler_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void _affect_combo_salarie_SelectedIndexChanged(object sender, EventArgs e)

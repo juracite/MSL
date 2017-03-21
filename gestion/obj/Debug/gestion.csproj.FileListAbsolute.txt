@@ -1,7 +1,6 @@
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\bin\gestion.exe.config
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\bin\gestion.exe
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\bin\gestion.pdb
-C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.csprojResolveAssemblyReference.cache
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.cvue.vPersonnel.formPersonnel.resources
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.cvue.vPersonnel.vAjout.formAddPersonnel.resources
 C:\Users\y.leveille-menez\Documents\Visual Studio 2010\Projects\gestion\gestion\obj\Debug\gestion.cvue.vService.vAjout.formAddService.resources

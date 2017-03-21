@@ -16,25 +16,24 @@ namespace gestion.cdata
             cmd.CommandText = req;
             MySqlDataReader reader;
             reader = cmd.ExecuteReader();
-            cmetier.Personnel personnel;
-            List<cmetier.Personnel> list_personnel = new List<cmetier.Personnel>();
+            cmetier.Entretien entretien;
+            List<cmetier.Entretien> list_entretien = new List<cmetier.Entretien>();
             while (reader.Read())
             {
                 int id = reader.GetInt32(0);
                 string imma = reader.GetString(1);
-                string dateAchat = reader.GetString(2);
+                DateTime dateAchat = reader.GetDateTime(2);
                 int nbKmCompteur = reader.GetInt32(3);
                 string motorisation = reader.GetString(4);
                 int idModele = reader.GetInt32(5);
                 int idSalarie = reader.GetInt32(6);
                 int nbKmLastEnt = reader.GetInt32(7);
 
-                personnel = new cmetier.Entretien();
-                list_personnel.Add(personnel);
+                entretien = new cmetier.Entretien(id, nbKmCompteur, nbKmLastEnt, 0, 0, "", "", imma, dateAchat, dateAchat, dateAchat);
+                list_entretien.Add(entretien);
             }
             reader.Close();
-            return list_personnel;
+            return list_entretien;
         }
-    }
     }
 }

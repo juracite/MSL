@@ -19,7 +19,7 @@ namespace gestion.cvue.vVehicule
 
         private void button_vehicule_annuler_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

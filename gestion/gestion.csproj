@@ -67,9 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cdata\AccesDB.cs" />
+    <Compile Include="cdata\entretienDb.cs" />
     <Compile Include="cdata\personnelDb.cs" />
     <Compile Include="cdata\serviceDb.cs" />
     <Compile Include="cdata\vehiculeDb.cs" />
+    <Compile Include="cmetier\Entretien.cs" />
     <Compile Include="cmetier\Personnel.cs" />
     <Compile Include="cmetier\Service.cs" />
     <Compile Include="cmetier\Vehicule.cs" />

@@ -122,7 +122,7 @@ namespace FlatUI
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			this.UpdateColors();
+            UpdateColors();
 
 			Bitmap B = new Bitmap(Width, Height);
 			Graphics G = Graphics.FromImage(B);
@@ -161,7 +161,7 @@ namespace FlatUI
 					}
 
 					//-- If Enabled
-					if (this.Enabled == false)
+					if (Enabled == false)
 					{
 						_with11.FillRectangle(new SolidBrush(Color.FromArgb(54, 58, 61)), Base);
 						_with11.DrawString(Text, Font, new SolidBrush(Color.FromArgb(140, 142, 143)), new Rectangle(20, 2, W, H), Helpers.NearSF);
@@ -196,7 +196,7 @@ namespace FlatUI
 					}
 
 					//-- If Enabled
-					if (this.Enabled == false)
+					if (Enabled == false)
 					{
 						_with11.FillRectangle(new SolidBrush(Color.FromArgb(54, 58, 61)), Base);
 						_with11.DrawString(Text, Font, new SolidBrush(Color.FromArgb(48, 119, 91)), new Rectangle(20, 2, W, H), Helpers.NearSF);
