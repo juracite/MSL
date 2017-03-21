@@ -12,7 +12,7 @@ namespace gestion
 {
     public partial class form_gestion : Form
     {
-        string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=;database=commune;";
+        string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=;database=commune;" + "convert zero datetime=True;";
         public static MySqlConnection instance;
        
         public form_gestion()
