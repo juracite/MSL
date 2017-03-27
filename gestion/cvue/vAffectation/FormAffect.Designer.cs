@@ -38,10 +38,10 @@
             this._affect_annee = new System.Windows.Forms.ComboBox();
             this._affect_combo_salarie = new System.Windows.Forms.ComboBox();
             this.label_combo_salarie = new System.Windows.Forms.Label();
-            this._affect_immatriculation = new System.Windows.Forms.ComboBox();
             this.label_affect_immatriculation = new System.Windows.Forms.Label();
             this._affectation_Annuler = new FlatUI.FlatButton();
             this._affectation_affecter = new FlatUI.FlatButton();
+            this._affectation_imma = new FlatUI.FlatTextBox();
             this.SuspendLayout();
             // 
             // label_header_modifpersonnel
@@ -132,19 +132,10 @@
             this.label_combo_salarie.TabIndex = 48;
             this.label_combo_salarie.Text = "Salarie :";
             // 
-            // _affect_immatriculation
-            // 
-            this._affect_immatriculation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._affect_immatriculation.FormattingEnabled = true;
-            this._affect_immatriculation.Location = new System.Drawing.Point(123, 156);
-            this._affect_immatriculation.Name = "_affect_immatriculation";
-            this._affect_immatriculation.Size = new System.Drawing.Size(121, 21);
-            this._affect_immatriculation.TabIndex = 51;
-            // 
             // label_affect_immatriculation
             // 
             this.label_affect_immatriculation.AutoSize = true;
-            this.label_affect_immatriculation.Location = new System.Drawing.Point(34, 159);
+            this.label_affect_immatriculation.Location = new System.Drawing.Point(33, 164);
             this.label_affect_immatriculation.Name = "label_affect_immatriculation";
             this.label_affect_immatriculation.Size = new System.Drawing.Size(83, 13);
             this.label_affect_immatriculation.TabIndex = 50;
@@ -180,12 +171,28 @@
             this._affectation_affecter.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this._affectation_affecter.Click += new System.EventHandler(this._affectation_affecter_Click);
             // 
+            // _affectation_imma
+            // 
+            this._affectation_imma.BackColor = System.Drawing.Color.Transparent;
+            this._affectation_imma.FocusOnHover = false;
+            this._affectation_imma.Location = new System.Drawing.Point(123, 156);
+            this._affectation_imma.MaxLength = 32767;
+            this._affectation_imma.Multiline = false;
+            this._affectation_imma.Name = "_affectation_imma";
+            this._affectation_imma.ReadOnly = false;
+            this._affectation_imma.Size = new System.Drawing.Size(121, 29);
+            this._affectation_imma.TabIndex = 51;
+            this._affectation_imma.Text = "AB123ABC";
+            this._affectation_imma.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this._affectation_imma.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this._affectation_imma.UseSystemPasswordChar = false;
+            // 
             // FormAffect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 243);
-            this.Controls.Add(this._affect_immatriculation);
+            this.Controls.Add(this._affectation_imma);
             this.Controls.Add(this.label_affect_immatriculation);
             this.Controls.Add(this._affect_combo_salarie);
             this.Controls.Add(this.label_combo_salarie);
@@ -199,6 +206,7 @@
             this.Controls.Add(this._affectation_Annuler);
             this.Controls.Add(this._affectation_affecter);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormAffect";
             this.Text = "Affectation vehicule";
             this.ResumeLayout(false);
@@ -219,7 +227,7 @@
         private System.Windows.Forms.ComboBox _affect_annee;
         private System.Windows.Forms.ComboBox _affect_combo_salarie;
         private System.Windows.Forms.Label label_combo_salarie;
-        private System.Windows.Forms.ComboBox _affect_immatriculation;
         private System.Windows.Forms.Label label_affect_immatriculation;
+        private FlatUI.FlatTextBox _affectation_imma;
     }
 }

@@ -165,5 +165,13 @@ namespace gestion.cdata
             reader.Close();
             return list_vehicule;
         }
+
+        public void setAffectVehiculeSalarieService(string id_salarie, string id_vehicule)
+        {
+            string req = "INSERT INTO vehicules VALUES()";
+            MySqlCommand cmd = form_gestion.instance.CreateCommand();
+            cmd.CommandText = req;
+            cmd.ExecuteNonQuery();
+        }
     }
 }

@@ -145,6 +145,7 @@
             this.Controls.Add(this._vehicule_modele);
             this.Controls.Add(this.label_vehicule_modele);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "formVehicule";
             this.Text = "formVehicule";
             this.ResumeLayout(false);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mar 21 Mars 2017 à 10:14
+-- Généré le: Lun 27 Mars 2017 à 10:06
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -7545,20 +7545,21 @@ CREATE TABLE IF NOT EXISTS `vehicules` (
   `dateAchat` date NOT NULL,
   `nbKmCompteur` int(11) NOT NULL,
   `motorisation` varchar(50) NOT NULL,
-  `idModele` int(11) NOT NULL,
-  `idSalarie` int(11) NOT NULL,
+  `id_salarie` int(11) NOT NULL,
+  `id_service` int(11) NOT NULL,
   `nbKmLastEntretien` int(11) NOT NULL,
   PRIMARY KEY (`id_vehicule`),
-  KEY `id_vehicule` (`id_vehicule`)
+  KEY `id_vehicule` (`id_vehicule`),
+  KEY `id_service` (`id_service`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `vehicules`
 --
 
-INSERT INTO `vehicules` (`id_vehicule`, `immatriculation`, `dateAchat`, `nbKmCompteur`, `motorisation`, `idModele`, `idSalarie`, `nbKmLastEntretien`) VALUES
+INSERT INTO `vehicules` (`id_vehicule`, `immatriculation`, `dateAchat`, `nbKmCompteur`, `motorisation`, `id_salarie`, `id_service`, `nbKmLastEntretien`) VALUES
 (0, 'N/A', '0000-00-00', 0, 'Diesel', 0, 0, 0),
-(20, 'NA765OQ', '1982-01-01', 30000, 'Diesel', 181, 6, 0);
+(20, 'NA765OQ', '1982-01-01', 30000, 'Diesel', 6, 0, 0);
 
 --
 -- Contraintes pour les tables exportées
