@@ -123,6 +123,12 @@
     <Compile Include="cvue\vVehicule\formVehiculeMarque.Designer.cs">
       <DependentUpon>formVehiculeMarque.cs</DependentUpon>
     </Compile>
+    <Compile Include="cvue\vVehicule\vAjout\formAjoutVehicule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vVehicule\vAjout\formAjoutVehicule.Designer.cs">
+      <DependentUpon>formAjoutVehicule.cs</DependentUpon>
+    </Compile>
     <Compile Include="cvue\vVehicule\vListeEntretien\formEntretienListe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cvue\vVehicule\formVehiculeMarque.resx">
       <DependentUpon>formVehiculeMarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vVehicule\vAjout\formAjoutVehicule.resx">
+      <DependentUpon>formAjoutVehicule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cvue\vVehicule\vListeEntretien\formEntretienListe.resx">
       <DependentUpon>formEntretienListe.cs</DependentUpon>

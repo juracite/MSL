@@ -60,8 +60,10 @@ namespace FlatUI
 			{
 				int functionReturnValue = 0;
 				return ListBx.SelectedIndex;
-				if (ListBx.SelectedIndex < 0)
-					return functionReturnValue;
+#pragma warning disable CS0162 // Impossible d'atteindre le code détecté
+                if (ListBx.SelectedIndex < 0)
+#pragma warning restore CS0162 // Impossible d'atteindre le code détecté
+                    return functionReturnValue;
 				return functionReturnValue;
 			}
 		}

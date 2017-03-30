@@ -8,15 +8,35 @@ namespace gestion.cmetier
 {
     class Vehicule
     {
-        int id, annee;
-        string marque, modele, imma;
-        public Vehicule(int id, int annee, string marque, string modele, string imma)
+        int id, annee, nbKmCompteur;
+        string marque, modele, imma, motorisation;
+        DateTime date_achat;
+
+        public Vehicule(int id)
+        {
+            Id = id;
+
+        }
+        public Vehicule(int id, int annee, int nbKmCompteur, string marque, string modele, string imma, string motorisation, DateTime date_achat)
         {
             Id = id;
             Annee = annee;
+            NbKmCompteur = nbKmCompteur;
             Marque = marque;
             Modele = modele;
             Imma = imma;
+            Motorisation = motorisation;
+            Date_achat = date_achat;
+        }
+        public Vehicule(int id, int annee, int nbKmCompteur, string marque, string modele, string imma, string motorisation)
+        {
+            Id = id;
+            Annee = annee;
+            NbKmCompteur = nbKmCompteur;
+            Marque = marque;
+            Modele = modele;
+            Imma = imma;
+            Motorisation = motorisation;
         }
 
         public int Annee
@@ -29,6 +49,18 @@ namespace gestion.cmetier
             set
             {
                 annee = value;
+            }
+        }
+        public int NbKmCompteur
+        {
+            get
+            {
+                return nbKmCompteur;
+            }
+
+            set
+            {
+                nbKmCompteur = value;
             }
         }
 
@@ -72,6 +104,30 @@ namespace gestion.cmetier
                 modele = value;
             }
         }
+        public string Motorisation
+        {
+            get
+            {
+                return motorisation;
+            }
 
+            set
+            {
+                motorisation = value;
+            }
+        }
+
+        public DateTime Date_achat
+        {
+            get
+            {
+                return date_achat;
+            }
+
+            set
+            {
+                date_achat = value;
+            }
+        }
     }
 }

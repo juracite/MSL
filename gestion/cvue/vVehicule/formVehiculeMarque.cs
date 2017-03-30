@@ -121,6 +121,17 @@ namespace gestion.cvue.vVehicule
             }
             _combo_vehicule_affect_salarie.SelectedIndex = 0;
         }
+
+        private void button_vehicule_affect_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_vehicule_ajouter_Click(object sender, EventArgs e)
+        {
+            cvue.vVehicule.vAjout.formAjoutVehicule formAjoutVehicule = new vAjout.formAjoutVehicule();
+            formAjoutVehicule.Show();
+        }
     }
 
        
