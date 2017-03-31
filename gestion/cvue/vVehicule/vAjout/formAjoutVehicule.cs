@@ -71,7 +71,9 @@ namespace gestion.cvue.vVehicule.vAjout
 
                 try
                 {
-                    vehiculedb.setVehicule(id_vehicule, _ajout_imma.Text, , _ajout_numeric_kmcompteur.Value.ToString(), _ajout_combo_motorisation.SelectedItem.ToString());
+                    DateTime dateachat = new DateTime();
+                    dateachat = _ajout_date_dateAchat.Value;
+                    vehiculedb.setVehicule(id_vehicule, _ajout_imma.Text, _ajout_numeric_kmcompteur.Value.ToString(), _ajout_combo_motorisation.SelectedItem.ToString(), dateachat);
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex)
                 {

@@ -232,7 +232,7 @@ namespace gestion.cdata
             cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
             cmd.Parameters.Add(new MySqlParameter("imma", imma));
 
-            cmd.Parameters.Add(new MySqlParameter("date_achat", date_achat));
+            cmd.Parameters.Add("@date_achat", MySqlDbType.DateTime).Value=date_achat;
 
             cmd.Parameters.Add(new MySqlParameter("nbkmcompteur", nbkmcompteur));
             cmd.Parameters.Add(new MySqlParameter("motorisation", motorisation));

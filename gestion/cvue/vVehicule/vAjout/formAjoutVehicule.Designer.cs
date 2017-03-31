@@ -41,7 +41,7 @@
             this._combo_ajout_annee = new System.Windows.Forms.ComboBox();
             this.t_ajout_checkLength_imma = new System.Windows.Forms.Timer(this.components);
             this.label_ajout_dateachat = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this._ajout_date_dateAchat = new System.Windows.Forms.DateTimePicker();
             this._ajout_combo_motorisation = new FlatUI.FlatComboBox();
             this._ajout_numeric_kmcompteur = new FlatUI.FlatNumeric();
             this.arlette_ajout_info = new FlatUI.FlatAlertBox();
@@ -151,12 +151,13 @@
             this.label_ajout_dateachat.TabIndex = 79;
             this.label_ajout_dateachat.Text = "Date d\'achat :";
             // 
-            // dateTimePicker1
+            // _ajout_date_dateAchat
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(135, 261);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 80;
+            this._ajout_date_dateAchat.Location = new System.Drawing.Point(162, 261);
+            this._ajout_date_dateAchat.Name = "_ajout_date_dateAchat";
+            this._ajout_date_dateAchat.Size = new System.Drawing.Size(121, 20);
+            this._ajout_date_dateAchat.TabIndex = 80;
+            this._ajout_date_dateAchat.Value = new System.DateTime(2017, 3, 12, 15, 35, 0, 0);
             // 
             // _ajout_combo_motorisation
             // 
@@ -265,7 +266,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 349);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this._ajout_date_dateAchat);
             this.Controls.Add(this.label_ajout_dateachat);
             this.Controls.Add(this._ajout_combo_motorisation);
             this.Controls.Add(this._ajout_numeric_kmcompteur);
@@ -309,6 +310,6 @@
         private FlatUI.FlatNumeric _ajout_numeric_kmcompteur;
         private FlatUI.FlatComboBox _ajout_combo_motorisation;
         private System.Windows.Forms.Label label_ajout_dateachat;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker _ajout_date_dateAchat;
     }
 }

@@ -15,7 +15,6 @@ namespace gestion.cmetier
         public Vehicule(int id)
         {
             Id = id;
-
         }
         public Vehicule(int id, int annee, int nbKmCompteur, string marque, string modele, string imma, string motorisation, DateTime date_achat)
         {
