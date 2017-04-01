@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
--- Client: localhost
--- Généré le: Lun 27 Mars 2017 à 10:06
--- Version du serveur: 5.6.12-log
--- Version de PHP: 5.4.16
+-- Client :  127.0.0.1
+-- Généré le :  Sam 01 Avril 2017 à 14:36
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,13 +14,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données: `commune`
+-- Base de données :  `commune`
 --
-CREATE DATABASE IF NOT EXISTS `commune` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `commune`;
 
 -- --------------------------------------------------------
 
@@ -28,12 +26,9 @@ USE `commune`;
 -- Structure de la table `conduire`
 --
 
-CREATE TABLE IF NOT EXISTS `conduire` (
+CREATE TABLE `conduire` (
   `immatriculation` varchar(255) NOT NULL,
-  `id_salarie` int(11) NOT NULL,
-  PRIMARY KEY (`immatriculation`,`id_salarie`),
-  KEY `immatriculation` (`immatriculation`),
-  KEY `id_salarie` (`id_salarie`)
+  `id_salarie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -42,12 +37,11 @@ CREATE TABLE IF NOT EXISTS `conduire` (
 -- Structure de la table `entretien_type`
 --
 
-CREATE TABLE IF NOT EXISTS `entretien_type` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `entretien_type` (
+  `id` int(11) NOT NULL,
   `libelle` varchar(100) NOT NULL,
-  `nbKm` int(6) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `nbKm` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -55,11 +49,10 @@ CREATE TABLE IF NOT EXISTS `entretien_type` (
 -- Structure de la table `marque`
 --
 
-CREATE TABLE IF NOT EXISTS `marque` (
-  `id_marque` int(11) NOT NULL AUTO_INCREMENT,
-  `libelle_marque` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_marque`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE `marque` (
+  `id_marque` int(11) NOT NULL,
+  `libelle_marque` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -67,18 +60,12 @@ CREATE TABLE IF NOT EXISTS `marque` (
 -- Structure de la table `marque_modele`
 --
 
-CREATE TABLE IF NOT EXISTS `marque_modele` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `annee` int(4) unsigned NOT NULL,
+CREATE TABLE `marque_modele` (
+  `id` int(10) NOT NULL,
+  `annee` int(4) UNSIGNED NOT NULL,
   `marque` varchar(50) DEFAULT NULL,
-  `modele` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `U_VehicleModelYear_year_make_model` (`annee`,`marque`,`modele`),
-  KEY `I_VehicleModelYear_year` (`annee`),
-  KEY `I_VehicleModelYear_make` (`marque`),
-  KEY `I_VehicleModelYear_model` (`modele`),
-  KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7269 ;
+  `modele` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `marque_modele`
@@ -1604,9 +1591,9 @@ INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
 (1250, 1993, 'Subaru', 'Loyale'),
 (1255, 1993, 'Subaru', 'SVX'),
 (1259, 1993, 'Suzuki', 'Samurai'),
-(1256, 1993, 'Suzuki', 'Sidekick');
+(1256, 1993, 'Suzuki', 'Sidekick'),
+(1258, 1993, 'Suzuki', 'SJ');
 INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
-(1258, 1993, 'Suzuki', 'SJ'),
 (1257, 1993, 'Suzuki', 'Swift'),
 (1439, 1993, 'Toyota', '4Runner'),
 (1438, 1993, 'Toyota', 'Camry'),
@@ -3094,9 +3081,9 @@ INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
 (2953, 1999, 'Mercury', 'Tracer'),
 (2954, 1999, 'Mercury', 'Villager'),
 (2878, 1999, 'Mitsubishi', '3000GT'),
-(2873, 1999, 'Mitsubishi', 'Challenger');
+(2873, 1999, 'Mitsubishi', 'Challenger'),
+(2877, 1999, 'Mitsubishi', 'Diamante');
 INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
-(2877, 1999, 'Mitsubishi', 'Diamante'),
 (2872, 1999, 'Mitsubishi', 'Eclipse'),
 (2875, 1999, 'Mitsubishi', 'Galant'),
 (2876, 1999, 'Mitsubishi', 'GTO'),
@@ -4603,9 +4590,9 @@ INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
 (4527, 2005, 'Buick', 'Terraza'),
 (4605, 2005, 'Cadillac', 'CTS'),
 (4606, 2005, 'Cadillac', 'DeVille'),
-(4607, 2005, 'Cadillac', 'Escalade');
+(4607, 2005, 'Cadillac', 'Escalade'),
+(4608, 2005, 'Cadillac', 'Escalade ESV');
 INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
-(4608, 2005, 'Cadillac', 'Escalade ESV'),
 (4609, 2005, 'Cadillac', 'Escalade EXT'),
 (4604, 2005, 'Cadillac', 'SRX'),
 (4610, 2005, 'Cadillac', 'STS'),
@@ -6114,9 +6101,9 @@ INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
 (5999, 2009, 'Infiniti', 'FX'),
 (6001, 2009, 'Infiniti', 'G'),
 (6000, 2009, 'Infiniti', 'G37'),
-(5996, 2009, 'Infiniti', 'M');
+(5996, 2009, 'Infiniti', 'M'),
+(6002, 2009, 'Infiniti', 'QX');
 INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
-(6002, 2009, 'Infiniti', 'QX'),
 (5997, 2009, 'Infiniti', 'QX56'),
 (6200, 2009, 'Isuzu', 'Ascender'),
 (6187, 2009, 'Jaguar', 'XF'),
@@ -7365,12 +7352,11 @@ INSERT INTO `marque_modele` (`id`, `annee`, `marque`, `modele`) VALUES
 -- Structure de la table `membres`
 --
 
-CREATE TABLE IF NOT EXISTS `membres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `membres` (
+  `id` int(11) NOT NULL,
   `login` varchar(35) NOT NULL,
-  `mdp` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `mdp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `membres`
@@ -7385,13 +7371,11 @@ INSERT INTO `membres` (`id`, `login`, `mdp`) VALUES
 -- Structure de la table `modele`
 --
 
-CREATE TABLE IF NOT EXISTS `modele` (
-  `id_modele` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `modele` (
+  `id_modele` int(11) NOT NULL,
   `libelle_modele` varchar(255) NOT NULL,
-  `id_marque` int(11) NOT NULL,
-  PRIMARY KEY (`id_modele`),
-  KEY `id_marque` (`id_marque`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `id_marque` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7399,16 +7383,15 @@ CREATE TABLE IF NOT EXISTS `modele` (
 -- Structure de la table `mp`
 --
 
-CREATE TABLE IF NOT EXISTS `mp` (
-  `mp_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `mp` (
+  `mp_id` int(11) NOT NULL,
   `mp_expediteur` int(11) NOT NULL,
   `mp_receveur` int(11) NOT NULL,
   `mp_titre` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `mp_text` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `mp_time` int(11) NOT NULL,
-  `mp_lu` tinyint(1) NOT NULL,
-  PRIMARY KEY (`mp_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+  `mp_lu` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `mp`
@@ -7417,7 +7400,7 @@ CREATE TABLE IF NOT EXISTS `mp` (
 INSERT INTO `mp` (`mp_id`, `mp_expediteur`, `mp_receveur`, `mp_titre`, `mp_text`, `mp_time`, `mp_lu`) VALUES
 (2, 11, 6, 'Titre test', 'Ouioui <b>GRAS</b>', 1480797501, 1),
 (3, 11, 12, 'Potier', 'qsdqdqdqdsd', 1480797603, 1),
-(10, 12, 11, 'BG', 'T''es plutÃ´t bg toi ;)', 1488275948, 1),
+(10, 12, 11, 'BG', 'T\'es plutÃ´t bg toi ;)', 1488275948, 1),
 (8, 11, 11, 'Je te rÃ©ponds', 'TEST de rÃ©ponse \r\n\r\n<b>gras</b>', 1480930717, 1),
 (11, 11, 12, 'FDP', 'TU pues', 1488445277, 0);
 
@@ -7427,16 +7410,15 @@ INSERT INTO `mp` (`mp_id`, `mp_expediteur`, `mp_receveur`, `mp_titre`, `mp_text`
 -- Structure de la table `personnel`
 --
 
-CREATE TABLE IF NOT EXISTS `personnel` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `personnel` (
+  `id` int(10) UNSIGNED NOT NULL,
   `prenom` varchar(30) NOT NULL,
   `nom` varchar(48) NOT NULL,
   `mail` varchar(80) NOT NULL,
   `login` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `id_con` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `id_con` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `personnel`
@@ -7452,16 +7434,15 @@ INSERT INTO `personnel` (`id`, `prenom`, `nom`, `mail`, `login`, `password`, `id
 -- Structure de la table `rdv_entretien`
 --
 
-CREATE TABLE IF NOT EXISTS `rdv_entretien` (
-  `id_rdv` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `rdv_entretien` (
+  `id_rdv` int(11) NOT NULL,
   `idEntretienType` int(4) NOT NULL,
   `nbKmCompteur` int(11) NOT NULL,
   `date` date NOT NULL,
   `heure` time NOT NULL,
   `commentaire` text NOT NULL,
-  `idvehicule` int(11) NOT NULL,
-  PRIMARY KEY (`id_rdv`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `idvehicule` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7469,43 +7450,39 @@ CREATE TABLE IF NOT EXISTS `rdv_entretien` (
 -- Structure de la table `salarie`
 --
 
-CREATE TABLE IF NOT EXISTS `salarie` (
-  `id_salarie` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `salarie` (
+  `id_salarie` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `mobile` int(10) NOT NULL,
   `type_service` varchar(255) NOT NULL,
   `mail` varchar(255) NOT NULL,
   `responsable` tinyint(1) NOT NULL,
-  `id_vehicule` int(10) NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `id_con` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_salarie`),
-  KEY `type_service` (`type_service`),
-  KEY `id_salarie` (`id_salarie`),
-  KEY `id_vehicule` (`id_vehicule`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+  `id_con` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `salarie`
 --
 
-INSERT INTO `salarie` (`id_salarie`, `nom`, `prenom`, `mobile`, `type_service`, `mail`, `responsable`, `id_vehicule`, `login`, `password`, `id_con`) VALUES
-(1, 'Francoeur', 'Laetitia', 1263, 'Compta', 'Banana.Split@chantilly.fraise', 1, 0, 'l.francoeur', '6d5d759a42ea994421fb1791e5a92054', '1c5fd3212dadb21a5080a3e86d8099e5'),
-(2, 'Coula', 'Fred', 2342, 'Informatique', 'Fred.Coula@dtc.com', 1, 0, 'f.coula', '965ee27527c8e96024f541786562f1d8', 'df885907063c7f8558efb655f703677d'),
-(3, 'Marcoux', 'David', 3909, 'Loisir', 'b2o.c@hotmail.fr', 1, 0, 'd.marcoux', 'a7264162db9236dbc2916857db078bba', '101bfd6d2776a616aa2cac0129ca66b2'),
-(4, 'Grimard', 'Alexandrin', 1545, 'sportif', 'AlexandrinGrimard@armyspy.com', 1, 0, 'a.grimard', '0e02985eb752b94af6148b05636ac31a', '00f3241b9818a55399ede5d46937f638'),
-(5, 'Archard', 'Sylvain', 3233, 'Sanitaire', 'ArchardSylvain@dayrep.com', 1, 0, '', '', ''),
-(6, 'Desforges', 'Barry', 1010, 'Enseignement', 'BarryDesforges@jourrapide.com', 1, 0, 'b.desforges', 'b443164b2d7072ec7d90f2630c8486c3', 'cfcd208495d565ef66e7dff9f98764da'),
-(7, 'Parenteau', 'Vaden', 6658, 'Informatique', 'VadenParenteau@teleworm.us', 0, 0, '', '', ''),
-(8, 'Croquetaigne', 'Ferrau', 9730, 'Enseignement', 'FerrauCroquetaigne@dayrep.com', 0, 0, '', '', ''),
-(9, 'Biloute', 'Bobo', 2286, 'test', 'biloute.bobo@laque.com', 1, 0, '', '', ''),
-(10, 'Silva', 'Robert', 7368, 'sportif', 'r.silva@amourette.com', 0, 0, 'r.silva', 'cdc37e03cd304046a0cfddf17bad1319', '3de843742dddfedc862ca11db628545f'),
-(11, 'Leveille-menez', 'Yann', 3324, 'Informatique', 'yannlm2010@hotmail.fr', 0, 0, 'y.leveille-menez', '201f00b5ca5d65a1c118e5e32431514c', 'qsdqsdqsd'),
-(12, 'Potier', 'Nicolas', 1578, 'Enseignement', 'nicolaspotier1@gmail.com', 0, 0, 'n.potier', 'd73dec37ace5a31ef58875c9843d9770', '2d11d3d6dc15f0033a9d3d33a194bfe8'),
-(13, 'Force', 'Louis', 2354, 'test2', 'l.force@gerger.fr', 1, 0, 'l.force', 'b0e12625c8dbd4aba02598bae484b466', ''),
-(15, 'dfgfwdg', 'qsdqsd', 2465, 'test', 'qsdqsd', 0, 20, 'qsdq', '995bde053a4c4dd84a332f28681b8c6c', 'd9d60e7be7783cbecaac45ec26cb6a2f');
+INSERT INTO `salarie` (`id_salarie`, `nom`, `prenom`, `mobile`, `type_service`, `mail`, `responsable`, `login`, `password`, `id_con`) VALUES
+(0, 'N/A', 'N/A', 0, 'Aucun', '', 0, 'N/A', 'N/A', 'N/A'),
+(1, 'Francoeur', 'Laetitia', 1263, 'Compta', 'Banana.Split@chantilly.fraise', 1, 'l.francoeur', '6d5d759a42ea994421fb1791e5a92054', '1c5fd3212dadb21a5080a3e86d8099e5'),
+(2, 'Coula', 'Fred', 2342, 'Informatique', 'Fred.Coula@dtc.com', 1, 'f.coula', '965ee27527c8e96024f541786562f1d8', 'df885907063c7f8558efb655f703677d'),
+(3, 'Marcoux', 'David', 3909, 'Loisir', 'b2o.c@hotmail.fr', 1, 'd.marcoux', 'a7264162db9236dbc2916857db078bba', '101bfd6d2776a616aa2cac0129ca66b2'),
+(4, 'Grimard', 'Alexandrin', 1545, 'sportif', 'AlexandrinGrimard@armyspy.com', 1, 'a.grimard', '0e02985eb752b94af6148b05636ac31a', '00f3241b9818a55399ede5d46937f638'),
+(5, 'Archard', 'Sylvain', 3233, 'Sanitaire', 'ArchardSylvain@dayrep.com', 1, '', '', ''),
+(6, 'Desforges', 'Barry', 1010, 'Enseignement', 'BarryDesforges@jourrapide.com', 1, 'b.desforges', 'b443164b2d7072ec7d90f2630c8486c3', 'cfcd208495d565ef66e7dff9f98764da'),
+(7, 'Parenteau', 'Vaden', 6658, 'Informatique', 'VadenParenteau@teleworm.us', 0, '', '', ''),
+(8, 'Croquetaigne', 'Ferrau', 9730, 'Enseignement', 'FerrauCroquetaigne@dayrep.com', 0, '', '', ''),
+(9, 'Biloute', 'Bobo', 2286, 'test', 'biloute.bobo@laque.com', 1, '', '', ''),
+(10, 'Silva', 'Robert', 7368, 'sportif', 'r.silva@amourette.com', 0, 'r.silva', 'cdc37e03cd304046a0cfddf17bad1319', '3de843742dddfedc862ca11db628545f'),
+(11, 'Leveille-menez', 'Yann', 3324, 'Informatique', 'yannlm2010@hotmail.fr', 0, 'y.leveille-menez', '201f00b5ca5d65a1c118e5e32431514c', 'qsdqsdqsd'),
+(12, 'Potier', 'Nicolas', 1578, 'Enseignement', 'nicolaspotier1@gmail.com', 0, 'n.potier', 'd73dec37ace5a31ef58875c9843d9770', '2d11d3d6dc15f0033a9d3d33a194bfe8'),
+(13, 'Force', 'Louis', 2354, 'test2', 'l.force@gerger.fr', 1, 'l.force', 'b0e12625c8dbd4aba02598bae484b466', ''),
+(15, 'dfgfwdg', 'qsdqsd', 2465, 'test', 'qsdqsd', 0, 'qsdq', '995bde053a4c4dd84a332f28681b8c6c', 'd9d60e7be7783cbecaac45ec26cb6a2f');
 
 -- --------------------------------------------------------
 
@@ -7513,10 +7490,9 @@ INSERT INTO `salarie` (`id_salarie`, `nom`, `prenom`, `mobile`, `type_service`, 
 -- Structure de la table `service`
 --
 
-CREATE TABLE IF NOT EXISTS `service` (
+CREATE TABLE `service` (
   `type_service` varchar(255) NOT NULL,
-  `libelle_service` varchar(255) NOT NULL,
-  PRIMARY KEY (`type_service`)
+  `libelle_service` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -7527,7 +7503,7 @@ INSERT INTO `service` (`type_service`, `libelle_service`) VALUES
 ('Compta', 'fonds,prestation n et n-1,test'),
 ('Enseignement', 'Financement, création écoles,Kiki,lolo'),
 ('Informatique', 'Développement'),
-('Loisir', 'Club d''échec'),
+('Loisir', 'Club d\'échec'),
 ('Sanitaire', 'Creches, foyers'),
 ('sportif', 'equipements, activités, clubs, aménagements touristiques,fdyr'),
 ('test', 'test1,ghhh,jjjjj'),
@@ -7539,57 +7515,178 @@ INSERT INTO `service` (`type_service`, `libelle_service`) VALUES
 -- Structure de la table `vehicules`
 --
 
-CREATE TABLE IF NOT EXISTS `vehicules` (
-  `id_vehicule` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `vehicules` (
+  `id_vehicule` int(10) NOT NULL,
   `immatriculation` varchar(8) NOT NULL,
   `dateAchat` date NOT NULL,
   `nbKmCompteur` int(11) NOT NULL,
   `motorisation` varchar(50) NOT NULL,
-  `id_salarie` int(11) NOT NULL,
-  `id_service` int(11) NOT NULL,
-  `nbKmLastEntretien` int(11) NOT NULL,
-  PRIMARY KEY (`id_vehicule`),
-  KEY `id_vehicule` (`id_vehicule`),
-  KEY `id_service` (`id_service`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+  `id_salarie` int(11) DEFAULT NULL,
+  `type_service` varchar(255) DEFAULT NULL,
+  `nbKmLastEntretien` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `vehicules`
 --
 
-INSERT INTO `vehicules` (`id_vehicule`, `immatriculation`, `dateAchat`, `nbKmCompteur`, `motorisation`, `id_salarie`, `id_service`, `nbKmLastEntretien`) VALUES
-(0, 'N/A', '0000-00-00', 0, 'Diesel', 0, 0, 0),
-(20, 'NA765OQ', '1982-01-01', 30000, 'Diesel', 6, 0, 0);
+INSERT INTO `vehicules` (`id_vehicule`, `immatriculation`, `dateAchat`, `nbKmCompteur`, `motorisation`, `id_salarie`, `type_service`, `nbKmLastEntretien`) VALUES
+(0, 'N/A', '2017-01-01', 0, 'Diesel', 0, 'test', 0),
+(20, 'NA765OQ', '1982-01-01', 30000, 'Diesel', 6, 'sportif', 0),
+(547, 'AB123ABC', '2017-03-12', 14000, 'SP-95', 5, 'Sanitaire', 0);
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `conduire`
+--
+ALTER TABLE `conduire`
+  ADD PRIMARY KEY (`immatriculation`,`id_salarie`),
+  ADD KEY `immatriculation` (`immatriculation`),
+  ADD KEY `id_salarie` (`id_salarie`);
+
+--
+-- Index pour la table `entretien_type`
+--
+ALTER TABLE `entretien_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `marque`
+--
+ALTER TABLE `marque`
+  ADD PRIMARY KEY (`id_marque`);
+
+--
+-- Index pour la table `marque_modele`
+--
+ALTER TABLE `marque_modele`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `U_VehicleModelYear_year_make_model` (`annee`,`marque`,`modele`),
+  ADD KEY `I_VehicleModelYear_year` (`annee`),
+  ADD KEY `I_VehicleModelYear_make` (`marque`),
+  ADD KEY `I_VehicleModelYear_model` (`modele`),
+  ADD KEY `id` (`id`);
+
+--
+-- Index pour la table `membres`
+--
+ALTER TABLE `membres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `modele`
+--
+ALTER TABLE `modele`
+  ADD PRIMARY KEY (`id_modele`),
+  ADD KEY `id_marque` (`id_marque`);
+
+--
+-- Index pour la table `mp`
+--
+ALTER TABLE `mp`
+  ADD PRIMARY KEY (`mp_id`);
+
+--
+-- Index pour la table `personnel`
+--
+ALTER TABLE `personnel`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `rdv_entretien`
+--
+ALTER TABLE `rdv_entretien`
+  ADD PRIMARY KEY (`id_rdv`);
+
+--
+-- Index pour la table `salarie`
+--
+ALTER TABLE `salarie`
+  ADD PRIMARY KEY (`id_salarie`),
+  ADD KEY `type_service` (`type_service`),
+  ADD KEY `id_salarie` (`id_salarie`);
+
+--
+-- Index pour la table `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`type_service`);
+
+--
+-- Index pour la table `vehicules`
+--
+ALTER TABLE `vehicules`
+  ADD PRIMARY KEY (`id_vehicule`),
+  ADD KEY `id_vehicule` (`id_vehicule`),
+  ADD KEY `type_service` (`type_service`),
+  ADD KEY `id_salarie` (`id_salarie`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `entretien_type`
+--
+ALTER TABLE `entretien_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `marque`
+--
+ALTER TABLE `marque`
+  MODIFY `id_marque` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `marque_modele`
+--
+ALTER TABLE `marque_modele`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7269;
+--
+-- AUTO_INCREMENT pour la table `membres`
+--
+ALTER TABLE `membres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `modele`
+--
+ALTER TABLE `modele`
+  MODIFY `id_modele` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `mp`
+--
+ALTER TABLE `mp`
+  MODIFY `mp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT pour la table `personnel`
+--
+ALTER TABLE `personnel`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `rdv_entretien`
+--
+ALTER TABLE `rdv_entretien`
+  MODIFY `id_rdv` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `salarie`
+--
+ALTER TABLE `salarie`
+  MODIFY `id_salarie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT pour la table `vehicules`
+--
+ALTER TABLE `vehicules`
+  MODIFY `id_vehicule` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=548;
 --
 -- Contraintes pour les tables exportées
 --
 
 --
--- Contraintes pour la table `conduire`
---
-ALTER TABLE `conduire`
-  ADD CONSTRAINT `CLE ETRANGERE7` FOREIGN KEY (`immatriculation`) REFERENCES `vehicule` (`immatriculation`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `conduire_ibfk_1` FOREIGN KEY (`id_salarie`) REFERENCES `salarie` (`id_salarie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `modele`
---
-ALTER TABLE `modele`
-  ADD CONSTRAINT `CLE ETRANGERE3` FOREIGN KEY (`id_marque`) REFERENCES `marque` (`id_marque`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `salarie`
---
-ALTER TABLE `salarie`
-  ADD CONSTRAINT `CLE ETRANGERE5` FOREIGN KEY (`type_service`) REFERENCES `service` (`type_service`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ID VEHICULE SALARIE` FOREIGN KEY (`id_vehicule`) REFERENCES `vehicules` (`id_vehicule`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Contraintes pour la table `vehicules`
 --
 ALTER TABLE `vehicules`
-  ADD CONSTRAINT `ID MARQUE MODELE` FOREIGN KEY (`id_vehicule`) REFERENCES `marque_modele` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `vehicules_ibfk_1` FOREIGN KEY (`id_salarie`) REFERENCES `salarie` (`id_salarie`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
