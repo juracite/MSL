@@ -35,15 +35,14 @@
             this.modele = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom_annee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flatLabel2 = new FlatUI.FlatLabel();
-            this._combo_vehicule_affect_salarie = new FlatUI.FlatComboBox();
+            this._vehicule_checkbox_affectresp = new FlatUI.FlatCheckBox();
+            this.button_vehicule_ajouter = new FlatUI.FlatButton();
             this.flatLabel1 = new FlatUI.FlatLabel();
             this._combo_vehicule_affect_service = new FlatUI.FlatComboBox();
             this.button_vehicule_affect = new FlatUI.FlatButton();
             this.button_vehicule_annuler = new FlatUI.FlatButton();
             this.infobar_vehicule = new FlatUI.FlatStatusBar();
             this.button_vehicule_modifier = new FlatUI.FlatButton();
-            this.button_vehicule_ajouter = new FlatUI.FlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vehicule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +50,8 @@
             // 
             this.dgv_vehicule.AllowUserToAddRows = false;
             this.dgv_vehicule.AllowUserToDeleteRows = false;
+            this.dgv_vehicule.AllowUserToResizeColumns = false;
+            this.dgv_vehicule.AllowUserToResizeRows = false;
             this.dgv_vehicule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vehicule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_vehicule,
@@ -59,12 +60,14 @@
             this.marque,
             this.nom_annee});
             this.dgv_vehicule.Location = new System.Drawing.Point(12, 12);
+            this.dgv_vehicule.MultiSelect = false;
             this.dgv_vehicule.Name = "dgv_vehicule";
             this.dgv_vehicule.ReadOnly = true;
             this.dgv_vehicule.RowHeadersVisible = false;
             this.dgv_vehicule.Size = new System.Drawing.Size(631, 264);
             this.dgv_vehicule.TabIndex = 0;
             this.dgv_vehicule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_vehicule_CellContentClick);
+            this.dgv_vehicule.SelectionChanged += new System.EventHandler(this.dgv_vehicule_SelectionChanged);
             // 
             // id_vehicule
             // 
@@ -101,36 +104,35 @@
             this.nom_annee.Name = "nom_annee";
             this.nom_annee.ReadOnly = true;
             // 
-            // flatLabel2
+            // _vehicule_checkbox_affectresp
             // 
-            this.flatLabel2.AutoSize = true;
-            this.flatLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.flatLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.flatLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.flatLabel2.Location = new System.Drawing.Point(248, 315);
-            this.flatLabel2.Name = "flatLabel2";
-            this.flatLabel2.Size = new System.Drawing.Size(61, 15);
-            this.flatLabel2.TabIndex = 17;
-            this.flatLabel2.Text = "Salarié(e) :";
+            this._vehicule_checkbox_affectresp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this._vehicule_checkbox_affectresp.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this._vehicule_checkbox_affectresp.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this._vehicule_checkbox_affectresp.Checked = false;
+            this._vehicule_checkbox_affectresp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._vehicule_checkbox_affectresp.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this._vehicule_checkbox_affectresp.Location = new System.Drawing.Point(315, 313);
+            this._vehicule_checkbox_affectresp.Name = "_vehicule_checkbox_affectresp";
+            this._vehicule_checkbox_affectresp.Options = FlatUI.FlatCheckBox._Options.Style1;
+            this._vehicule_checkbox_affectresp.Size = new System.Drawing.Size(210, 22);
+            this._vehicule_checkbox_affectresp.TabIndex = 19;
+            this._vehicule_checkbox_affectresp.Text = "Affecter au responsable";
             // 
-            // _combo_vehicule_affect_salarie
+            // button_vehicule_ajouter
             // 
-            this._combo_vehicule_affect_salarie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this._combo_vehicule_affect_salarie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._combo_vehicule_affect_salarie.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this._combo_vehicule_affect_salarie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._combo_vehicule_affect_salarie.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this._combo_vehicule_affect_salarie.ForeColor = System.Drawing.Color.White;
-            this._combo_vehicule_affect_salarie.FormattingEnabled = true;
-            this._combo_vehicule_affect_salarie.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this._combo_vehicule_affect_salarie.ItemHeight = 18;
-            this._combo_vehicule_affect_salarie.Location = new System.Drawing.Point(315, 313);
-            this._combo_vehicule_affect_salarie.Name = "_combo_vehicule_affect_salarie";
-            this._combo_vehicule_affect_salarie.Size = new System.Drawing.Size(210, 24);
-            this._combo_vehicule_affect_salarie.State1 = FlatUI.MouseState.None;
-            this._combo_vehicule_affect_salarie.State2 = FlatUI.MouseState.None;
-            this._combo_vehicule_affect_salarie.State3 = FlatUI.MouseState.None;
-            this._combo_vehicule_affect_salarie.TabIndex = 16;
+            this.button_vehicule_ajouter.BackColor = System.Drawing.Color.Transparent;
+            this.button_vehicule_ajouter.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_vehicule_ajouter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_vehicule_ajouter.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_vehicule_ajouter.Location = new System.Drawing.Point(12, 331);
+            this.button_vehicule_ajouter.Name = "button_vehicule_ajouter";
+            this.button_vehicule_ajouter.Rounded = false;
+            this.button_vehicule_ajouter.Size = new System.Drawing.Size(112, 43);
+            this.button_vehicule_ajouter.TabIndex = 18;
+            this.button_vehicule_ajouter.Text = "Ajouter";
+            this.button_vehicule_ajouter.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button_vehicule_ajouter.Click += new System.EventHandler(this.button_vehicule_ajouter_Click);
             // 
             // flatLabel1
             // 
@@ -224,29 +226,13 @@
             this.button_vehicule_modifier.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.button_vehicule_modifier.Click += new System.EventHandler(this.button_vehicule_modifier_Click);
             // 
-            // button_vehicule_ajouter
-            // 
-            this.button_vehicule_ajouter.BackColor = System.Drawing.Color.Transparent;
-            this.button_vehicule_ajouter.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.button_vehicule_ajouter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_vehicule_ajouter.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button_vehicule_ajouter.Location = new System.Drawing.Point(12, 331);
-            this.button_vehicule_ajouter.Name = "button_vehicule_ajouter";
-            this.button_vehicule_ajouter.Rounded = false;
-            this.button_vehicule_ajouter.Size = new System.Drawing.Size(112, 43);
-            this.button_vehicule_ajouter.TabIndex = 18;
-            this.button_vehicule_ajouter.Text = "Ajouter";
-            this.button_vehicule_ajouter.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button_vehicule_ajouter.Click += new System.EventHandler(this.button_vehicule_ajouter_Click);
-            // 
             // formVehiculeMarque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 406);
+            this.Controls.Add(this._vehicule_checkbox_affectresp);
             this.Controls.Add(this.button_vehicule_ajouter);
-            this.Controls.Add(this.flatLabel2);
-            this.Controls.Add(this._combo_vehicule_affect_salarie);
             this.Controls.Add(this.flatLabel1);
             this.Controls.Add(this._combo_vehicule_affect_service);
             this.Controls.Add(this.button_vehicule_affect);
@@ -279,8 +265,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nom_annee;
         private FlatUI.FlatComboBox _combo_vehicule_affect_service;
         private FlatUI.FlatLabel flatLabel1;
-        private FlatUI.FlatLabel flatLabel2;
-        private FlatUI.FlatComboBox _combo_vehicule_affect_salarie;
         private FlatUI.FlatButton button_vehicule_ajouter;
+        private FlatUI.FlatCheckBox _vehicule_checkbox_affectresp;
     }
 }

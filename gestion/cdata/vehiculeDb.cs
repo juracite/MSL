@@ -216,12 +216,106 @@ namespace gestion.cdata
             return list_vehicule;
         }
 
-        public void setAffectVehiculeSalarieService(string id_salarie, string id_vehicule)
+        public void setAffectVehiculeSalarieService(string type_service, string id_vehicule, bool affect_res)
         {
-            string req = "INSERT INTO vehicules VALUES()";
+            string req;
             MySqlCommand cmd = form_gestion.instance.CreateCommand();
-            cmd.CommandText = req;
+
+            if (affect_res)
+            {
+                personnelDb responsableDb = new personnelDb();
+                cmetier.Personnel responsable;
+
+                responsable = responsableDb.getResponsableTypeService(type_service);
+
+                int id_salarie = responsable.Id_salarie;
+
+                req = "UPDATE vehicules SET type_service = @type_service, id_salarie = @id_salarie WHERE id_vehicule = @id_vehicule";
+
+                
+                cmd.CommandText = req;
+
+                cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+                cmd.Parameters.Add(new MySqlParameter("type_service", type_service));
+                cmd.Parameters.Add(new MySqlParameter("id_salarie", id_salarie));
+            }
+            else
+            {
+                req = "UPDATE vehicules SET type_service = @type_service WHERE id_vehicule = @id_vehicule";
+
+                cmd.CommandText = req;
+
+                cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+                cmd.Parameters.Add(new MySqlParameter("type_service", type_service));
+            }
+
+            
             cmd.ExecuteNonQuery();
+        }
+        public string getVehiculeTypeService(string id_vehicule)
+        {
+            string req = "SELECT type_service FROM vehicules WHERE id_vehicule = @id_vehicule";
+            MySqlCommand cmd = form_gestion.instance.CreateCommand();
+
+            string type_service = "";
+
+            cmd.CommandText = req;
+
+            cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+
+            MySqlDataReader reader;
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                type_service = reader.GetString(0);
+            }
+            reader.Close();
+
+            return type_service;
+        }
+        public string getVehiculeSalarie(string id_vehicule)
+        {
+            string req = "SELECT id_salarie FROM vehicules WHERE id_vehicule = @id_vehicule";
+            string req1 = "SELECT nom, prenom FROM salarie WHERE id_salarie = @id_salarie";
+
+            MySqlCommand cmd = form_gestion.instance.CreateCommand();
+            MySqlDataReader reader;
+
+            string id_salarie = "";
+            string nom_prenom = "";
+
+            // ------------
+            cmd.CommandText = req;
+
+            cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                id_salarie = reader.GetString(0);
+            }
+            reader.Close();
+
+            // ------------
+
+            cmd.CommandText = req1;
+
+            cmd.Parameters.Add(new MySqlParameter("id_salarie", id_salarie));
+
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string nom = reader.GetString(0);
+                string prenom = reader.GetString(1);
+
+                nom_prenom = prenom[0].ToString() + "." + nom;
+            }
+            reader.Close();
+
+            return nom_prenom;
         }
         public void setVehicule(string id_vehicule, string imma, string nbkmcompteur, string motorisation, DateTime date_achat)
         {

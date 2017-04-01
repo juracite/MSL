@@ -57,14 +57,6 @@ namespace gestion.cvue.vVehicule
             }
 
             personnel_reader.Close();
-
-            _combo_vehicule_affect_salarie.Items.Clear();
-
-            foreach (cmetier.Personnel personnel in list_personnels)
-            {
-                _combo_vehicule_affect_salarie.Items.Add(personnel.Prenom[0] + "." + personnel.Nom);
-            }
-            _combo_vehicule_affect_salarie.SelectedIndex = 0;
         }
 
         public formVehiculeMarque()
@@ -112,25 +104,49 @@ namespace gestion.cvue.vVehicule
                 list_personnels.Add(perso);
             }
             personnel_reader.Close();
-
-            _combo_vehicule_affect_salarie.Items.Clear();
-
-            foreach (cmetier.Personnel personnel in list_personnels)
-            {
-                _combo_vehicule_affect_salarie.Items.Add(personnel.Prenom[0] + "." + personnel.Nom);
-            }
-            _combo_vehicule_affect_salarie.SelectedIndex = 0;
         }
 
         private void button_vehicule_affect_Click(object sender, EventArgs e)
         {
+            //Récupère la valeur de la cellule sélectionnée
+            int ligneSelectionIndex = dgv_vehicule.SelectedCells[0].RowIndex;
+            DataGridViewRow ligneSelection = dgv_vehicule.Rows[ligneSelectionIndex];
+            string id_vehicule = Convert.ToString(ligneSelection.Cells[0].Value);
 
+            string type_service = _combo_vehicule_affect_service.SelectedItem.ToString();
+            bool affect_res = false;
+            if (_vehicule_checkbox_affectresp.Checked)
+            {
+                affect_res = true;
+            }            
+
+            try
+            {
+                vehiculedb.setAffectVehiculeSalarieService(type_service, id_vehicule, affect_res);
+            }
+            catch(MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void button_vehicule_ajouter_Click(object sender, EventArgs e)
         {
             cvue.vVehicule.vAjout.formAjoutVehicule formAjoutVehicule = new vAjout.formAjoutVehicule();
             formAjoutVehicule.Show();
+        }
+
+        private void dgv_vehicule_SelectionChanged(object sender, EventArgs e)
+        {
+            //Récupère la valeur de la cellule sélectionnée
+            int ligneSelectionIndex = dgv_vehicule.SelectedCells[0].RowIndex;
+            DataGridViewRow ligneSelection = dgv_vehicule.Rows[ligneSelectionIndex];
+            string id_vehicule = Convert.ToString(ligneSelection.Cells[0].Value);
+
+            string type_service = vehiculedb.getVehiculeTypeService(id_vehicule);
+            string nom_prenom = vehiculedb.getVehiculeSalarie(id_vehicule);
+
+            infobar_vehicule.Text = "Service / Responsable : " + type_service + " / " + nom_prenom;
         }
     }
 
