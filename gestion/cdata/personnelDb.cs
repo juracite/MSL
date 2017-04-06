@@ -27,10 +27,8 @@ namespace gestion.cdata
                 string type_service = reader.GetString(4);
                 string mail = reader.GetString(5);
                 int responsable = reader.GetInt32(6);
-                int id_vehicule = reader.GetInt32(7);
-                string immatriculation = reader.GetString(8);
 
-                personnel = new cmetier.Personnel(id, nom, prenom, mobile, type_service, mail, responsable, id_vehicule, immatriculation);
+                personnel = new cmetier.Personnel(id, nom, prenom, mobile, type_service, mail, responsable, 0, "");
                 list_personnel.Add(personnel);
             }
             reader.Close();
