@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,31 +10,77 @@ namespace gestion.cdata
 {
     class entretienDb
     {
-        public List<cmetier.Entretien> sendReqInfo()
+        public static void ajouterEntretien(string uneDateEntretien, int unNbKmCompteur, string unCommentaire, int unIdVehicule, int unIdEntretienType)
         {
-            string req = "select * from vehicules";
-            MySqlCommand cmd = form_gestion.instance.CreateCommand();
-            cmd.CommandText = req;
-            MySqlDataReader reader;
-            reader = cmd.ExecuteReader();
-            cmetier.Entretien entretien;
-            List<cmetier.Entretien> list_entretien = new List<cmetier.Entretien>();
-            while (reader.Read())
+            try
             {
-                int id = reader.GetInt32(0);
-                string imma = reader.GetString(1);
-                DateTime dateAchat = reader.GetDateTime(2);
-                int nbKmCompteur = reader.GetInt32(3);
-                string motorisation = reader.GetString(4);
-                int idModele = reader.GetInt32(5);
-                int idSalarie = reader.GetInt32(6);
-                int nbKmLastEnt = reader.GetInt32(7);
+                string sql = "INSERT INTO entretien (dateEntretien, nbKmCompteur, commentaire) VALUES('" + uneDateEntretien + "','" + unNbKmCompteur + "','" + unCommentaire + "')";
+                MySqlCommand cmdSql = form_gestion.instance.CreateCommand();
+                cmdSql.CommandText = sql;
+                cmdSql.ExecuteNonQuery();
 
-                entretien = new cmetier.Entretien(id, nbKmCompteur, nbKmLastEnt, 0, 0, "", "", imma, dateAchat, dateAchat, dateAchat);
-                list_entretien.Add(entretien);
             }
-            reader.Close();
-            return list_entretien;
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        public static void modifierEntretien(int idEntretien, string uneDateEntretien, int unNbKmCompteur, string unCommentaire, int unIdVehicule, int unIdEntretienType)
+        {
+            try
+            {
+                string sql = "UPDATE entretien SET dateEntretien='" + uneDateEntretien + "',nbKmCompteur='" + unNbKmCompteur + "', commentaire='" + unCommentaire + "' WHERE id_entretien=" + idEntretien;
+                MySqlCommand cmdSql = form_gestion.instance.CreateCommand();
+                cmdSql.CommandText = sql;
+                cmdSql.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        public static void supprimerEntretien(int idEntretien)
+        {
+            try
+            {
+                string sql = "DELETE * FROM entretien WHERE idEntretien=" + idEntretien;
+                MySqlCommand cmdSql = form_gestion.instance.CreateCommand();
+                cmdSql.CommandText = sql;
+                cmdSql.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        public static List<cmetier.Entretien> ListerEntretien()
+        {
+            List<cmetier.Entretien> listEntretien = new List<cmetier.Entretien>();
+            try
+            {
+                cmetier.Entretien entretien;
+
+                string sql = "SELECT * FROM entretien";
+                MySqlCommand cmdSql = form_gestion.instance.CreateCommand();
+                cmdSql.CommandText = sql;
+                MySqlDataReader resultat = cmdSql.ExecuteReader();
+                while (resultat.Read())
+                {
+                    entretien = new cmetier.Entretien(Convert.ToInt32(resultat.GetValue(0)), resultat.GetValue(1).ToString(), Convert.ToInt32(resultat.GetValue(2)), resultat.GetValue(3).ToString(), resultat.GetValue(4).ToString(), Convert.ToInt32(resultat.GetValue(6)));
+                    listEntretien.Add(entretien);
+                }
+                resultat.Close();
+
+                return listEntretien;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                return listEntretien;
+            }
         }
     }
 }

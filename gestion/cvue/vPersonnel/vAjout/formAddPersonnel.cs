@@ -16,7 +16,7 @@ namespace gestion.cvue.vPersonnel.vAjout
     	cdata.personnelDb personnel_instance = new cdata.personnelDb();
         cdata.vehiculeDb vehicule_instance = new cdata.vehiculeDb();
         List<cmetier.Vehicule> list_vehicules = new List<cmetier.Vehicule>();
-        List<cmetier.Vehicule> list_vehicules_used = new List<cmetier.Vehicule>();
+        cmetier.Vehicule vehicule_used;
 
         string marque = "";
         string modele = "";
@@ -48,12 +48,9 @@ namespace gestion.cvue.vPersonnel.vAjout
 
             foreach(cmetier.Vehicule vehicule in list_vehicules)
             {
-                list_vehicules_used = vehicule_instance.getVehiculesById(vehicule.Id);
-                foreach (cmetier.Vehicule vehicules_used in list_vehicules_used)
-                {
-                    combo_personnel_vehicule.Items.Add(vehicules_used.Id+"-"+vehicules_used.Marque+"-"+vehicules_used.Modele+"-"+vehicules_used.Annee);
-                    combo_personnel_vehicule.Text = vehicules_used.Id + "-" + vehicules_used.Marque + "-" + vehicules_used.Modele + "-" + vehicules_used.Annee;
-                }
+                vehicule_used = vehicule_instance.getVehiculeById(vehicule.Id);
+                combo_personnel_vehicule.Items.Add(vehicule_used.Id+"-"+ vehicule_used.Marque+"-"+ vehicule_used.Modele+"-"+ vehicule_used.Annee);
+                combo_personnel_vehicule.Text = vehicule_used.Id + "-" + vehicule_used.Marque + "-" + vehicule_used.Modele + "-" + vehicule_used.Annee;
             }
         }
 

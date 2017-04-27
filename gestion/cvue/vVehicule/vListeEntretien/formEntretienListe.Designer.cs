@@ -33,6 +33,7 @@
             this.dgv_entretien = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_entretien_rdv = new FlatUI.FlatButton();
             this.button_entretien_annuler = new FlatUI.FlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_entretien)).BeginInit();
@@ -55,25 +56,38 @@
             this.dgv_entretien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_entretien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.imma});
+            this.imma,
+            this.message});
             this.dgv_entretien.Location = new System.Drawing.Point(12, 54);
             this.dgv_entretien.MultiSelect = false;
             this.dgv_entretien.Name = "dgv_entretien";
+            this.dgv_entretien.ReadOnly = true;
             this.dgv_entretien.RowHeadersVisible = false;
             this.dgv_entretien.Size = new System.Drawing.Size(536, 243);
             this.dgv_entretien.TabIndex = 1;
+            this.dgv_entretien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_entretien_CellContentClick);
+            this.dgv_entretien.SelectionChanged += new System.EventHandler(this.dgv_entretien_SelectionChanged);
             // 
             // id
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.id.HeaderText = "Id";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
             // imma
             // 
             this.imma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.imma.HeaderText = "Immatriculation";
             this.imma.Name = "imma";
+            this.imma.ReadOnly = true;
+            // 
+            // message
+            // 
+            this.message.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.message.HeaderText = "Message";
+            this.message.Name = "message";
+            this.message.ReadOnly = true;
             // 
             // button_entretien_rdv
             // 
@@ -117,6 +131,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formEntretienListe";
             this.Text = "Entretien des véhicules";
+            this.Load += new System.EventHandler(this.formEntretienListe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_entretien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,9 +142,10 @@
 
         private FlatUI.FlatLabel label_header_listeEntretien;
         private System.Windows.Forms.DataGridView dgv_entretien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imma;
         private FlatUI.FlatButton button_entretien_rdv;
         private FlatUI.FlatButton button_entretien_annuler;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn message;
     }
 }

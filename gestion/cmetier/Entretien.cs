@@ -8,88 +8,59 @@ namespace gestion.cmetier
 {
     class Entretien
     {
-        int id, nbKmCpt, nbKmDernierEnt, idEntType, idRdv;
-        string commentaire, entLibelle, imma;
-        DateTime dateEnt, dateAchat, dateRdv;
+        private int idEntretien;
+        private string dateEntretien;
+        private int nbKmCompteur;
+        private string commentaire;
+        private string idVehicule;
+        private int idEntretienType;
 
-      
-        public Entretien(int id, int nbKmCpt, int nbKmDernierEnt, int idEntType, int idRdv, string commentaire, string entLibelle, string imma, DateTime dateEnt, DateTime dateAchat, DateTime dateRdv)
+        public Entretien(int idEntretien, string dateEntretien, int nbKmCompteur, string commentaire, string idVehicule, int idEntretienType)
         {
-            this.id = id;
-            this.nbKmCpt = nbKmCpt;
-            this.nbKmDernierEnt = nbKmDernierEnt;
-            this.idEntType = idEntType;
-            this.idRdv = idRdv;
+            this.idEntretien = idEntretien;
+            this.dateEntretien = dateEntretien;
+            this.nbKmCompteur = nbKmCompteur;
             this.commentaire = commentaire;
-            this.entLibelle = entLibelle;
-            this.imma = imma;
-            this.dateEnt = dateEnt;
-            this.dateAchat = dateAchat;
-            this.dateRdv = dateRdv;
+            this.idVehicule = idVehicule;
+            this.idEntretienType = idEntretienType;
         }
 
-        public int Id
+        public int IdEntretien
         {
             get
             {
-                return id;
+                return idEntretien;
             }
 
             set
             {
-                id = value;
+                idEntretien = value;
             }
         }
 
-        public int NbKmCpt
+        public string DateEntretien
         {
             get
             {
-                return nbKmCpt;
+                return dateEntretien;
             }
 
             set
             {
-                nbKmCpt = value;
+                dateEntretien = value;
             }
         }
 
-        public int NbKmDernierEnt
+        public int NbKmCompteur
         {
             get
             {
-                return nbKmDernierEnt;
+                return nbKmCompteur;
             }
 
             set
             {
-                nbKmDernierEnt = value;
-            }
-        }
-
-        public int IdEntType
-        {
-            get
-            {
-                return idEntType;
-            }
-
-            set
-            {
-                idEntType = value;
-            }
-        }
-
-        public int IdRdv
-        {
-            get
-            {
-                return idRdv;
-            }
-
-            set
-            {
-                idRdv = value;
+                nbKmCompteur = value;
             }
         }
 
@@ -106,70 +77,30 @@ namespace gestion.cmetier
             }
         }
 
-        public string EntLibelle
+        public string IdVehicule
         {
             get
             {
-                return entLibelle;
+                return idVehicule;
             }
 
             set
             {
-                entLibelle = value;
+                idVehicule = value;
             }
         }
 
-        public string Imma
+        public int IdEntretienType
         {
             get
             {
-                return imma;
+                return idEntretienType;
             }
 
             set
             {
-                imma = value;
+                idEntretienType = value;
             }
         }
-
-        public DateTime DateEnt
-        {
-            get
-            {
-                return dateEnt;
-            }
-
-            set
-            {
-                dateEnt = value;
-            }
-        }
-
-        public DateTime DateAchat
-        {
-            get
-            {
-                return dateAchat;
-            }
-
-            set
-            {
-                dateAchat = value;
-            }
-        }
-
-        public DateTime DateRdv
-        {
-            get
-            {
-                return dateRdv;
-            }
-
-            set
-            {
-                dateRdv = value;
-            }
-        }
-
     }
 }

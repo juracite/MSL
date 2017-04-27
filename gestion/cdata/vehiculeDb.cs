@@ -25,7 +25,7 @@ namespace gestion.cdata
                 string marque = reader.GetString(2);
                 string modele = reader.GetString(3);
                
-                vehicule = new cmetier.Vehicule(id, annee, 0, marque, modele, "", "diesel");
+                vehicule = new cmetier.Vehicule(id, annee, 0, 0, marque, modele, "", "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
@@ -82,7 +82,7 @@ namespace gestion.cdata
             return id;
         }
 
-        public List<cmetier.Vehicule> getVehiculesById(int id)
+        public cmetier.Vehicule getVehiculeById(int id)
         {
             string req = "select * from marque_modele where id='"+ id +"'";
             MySqlCommand cmd = form_gestion.instance.CreateCommand();
@@ -90,19 +90,22 @@ namespace gestion.cdata
             MySqlDataReader reader;
             reader = cmd.ExecuteReader();
             cmetier.Vehicule vehicule;
-            List<cmetier.Vehicule> list_vehicule = new List<cmetier.Vehicule>();
+            int id_vehicule = 0;
+            int annee = 0;
+            string marque = "";
+            string modele = "";
+
             while (reader.Read())
             {
-                int id_vehicule = reader.GetInt32(0);
-                int annee = reader.GetInt32(1);
-                string marque = reader.GetString(2);
-                string modele = reader.GetString(3);
-
-                vehicule = new cmetier.Vehicule(id, annee, 0, marque, modele, "", "diesel");
-                list_vehicule.Add(vehicule);
+                id_vehicule = reader.GetInt32(0);
+                annee = reader.GetInt32(1);
+                marque = reader.GetString(2);
+                modele = reader.GetString(3);             
             }
             reader.Close();
-            return list_vehicule;
+
+            vehicule = new cmetier.Vehicule(id, annee, 0, 0, marque, modele, "", "diesel");
+            return vehicule;
         }
 
         public List<cmetier.Vehicule> getDisctinctVehiculesMarque()
@@ -118,7 +121,7 @@ namespace gestion.cdata
             {
                 string marque = reader.GetString(0);
 
-                vehicule = new cmetier.Vehicule(0, 0, 0, marque, "", "", "diesel");
+                vehicule = new cmetier.Vehicule(0, 0, 0, 0, marque, "", "", "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
@@ -139,7 +142,7 @@ namespace gestion.cdata
             {
                 string modele = reader.GetString(0);
 
-                vehicule = new cmetier.Vehicule(0, 0, 0, "", modele, "", "diesel");
+                vehicule = new cmetier.Vehicule(0, 0, 0, 0, "", modele, "", "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
@@ -161,7 +164,7 @@ namespace gestion.cdata
             {
                 int annee = reader.GetInt16(0);
 
-                vehicule = new cmetier.Vehicule(0, annee, 0, "", "", "", "diesel");
+                vehicule = new cmetier.Vehicule(0, annee, 0, 0, "", "", "", "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
@@ -208,8 +211,10 @@ namespace gestion.cdata
             {
                 int id = reader.GetInt32(0);
                 string imma = reader.GetString(1);
+                int nbKmEnt = reader.GetInt32(4);
+                int nbKmDernierEnt = reader.GetInt32(8);
 
-                vehicule = new cmetier.Vehicule(id, 0, 0, "", "", imma, "diesel");
+                vehicule = new cmetier.Vehicule(id, 0, nbKmEnt, nbKmDernierEnt, "", "", imma, "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();

@@ -16,7 +16,7 @@ namespace gestion.cvue.vVehicule
         List<cmetier.Vehicule> vehicules = new List<cmetier.Vehicule>();
         cdata.vehiculeDb vehicule_instance = new cdata.vehiculeDb();
         List<cmetier.Vehicule> list_vehicules = new List<cmetier.Vehicule>();
-        List<cmetier.Vehicule> list_vehicules_used = new List<cmetier.Vehicule>();
+        cmetier.Vehicule vehicule_used;
         cdata.personnelDb personneldb = new cdata.personnelDb();
         cdata.serviceDb servicedb = new cdata.serviceDb();
 
@@ -26,12 +26,10 @@ namespace gestion.cvue.vVehicule
 
             foreach (cmetier.Vehicule vehicule in list_vehicules)
             {
-                list_vehicules_used = vehicule_instance.getVehiculesById(vehicule.Id);
+                vehicule_used = vehicule_instance.getVehiculeById(vehicule.Id);
 
-                foreach (cmetier.Vehicule vehicules_used in list_vehicules_used)
-                {
-                    dgv_vehicule.Rows.Add(vehicules_used.Id, vehicule.Imma, vehicules_used.Marque, vehicules_used.Modele, vehicules_used.Annee);
-                }
+
+                dgv_vehicule.Rows.Add(vehicule_used.Id, vehicule.Imma, vehicule_used.Marque, vehicule_used.Modele, vehicule_used.Annee);
             }
 
             List<cmetier.Service> list_services = new List<cmetier.Service>();

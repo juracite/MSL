@@ -8,7 +8,7 @@ namespace gestion.cmetier
 {
     class Vehicule
     {
-        int id, annee, nbKmCompteur;
+        int id, annee, nbKmCompteur, nbKmDernierEnt;
         string marque, modele, imma, motorisation;
         DateTime date_achat;
 
@@ -16,22 +16,24 @@ namespace gestion.cmetier
         {
             Id = id;
         }
-        public Vehicule(int id, int annee, int nbKmCompteur, string marque, string modele, string imma, string motorisation, DateTime date_achat)
+        public Vehicule(int id, int annee, int nbKmCompteur, int nbKmDernierEnt, string marque, string modele, string imma, string motorisation, DateTime date_achat)
         {
             Id = id;
             Annee = annee;
             NbKmCompteur = nbKmCompteur;
+            NbKmDernierEnt = nbKmDernierEnt;
             Marque = marque;
             Modele = modele;
             Imma = imma;
             Motorisation = motorisation;
             Date_achat = date_achat;
         }
-        public Vehicule(int id, int annee, int nbKmCompteur, string marque, string modele, string imma, string motorisation)
+        public Vehicule(int id, int annee, int nbKmCompteur, int nbKmDernierEnt, string marque, string modele, string imma, string motorisation)
         {
             Id = id;
             Annee = annee;
             NbKmCompteur = nbKmCompteur;
+            NbKmDernierEnt = nbKmDernierEnt;
             Marque = marque;
             Modele = modele;
             Imma = imma;
@@ -62,7 +64,18 @@ namespace gestion.cmetier
                 nbKmCompteur = value;
             }
         }
+        public int NbKmDernierEnt
+        {
+            get
+            {
+                return nbKmDernierEnt;
+            }
 
+            set
+            {
+                nbKmDernierEnt = value;
+            }
+        }
         public int Id
         {
             get

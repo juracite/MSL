@@ -30,17 +30,37 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formRendezvous));
             this.flatTabControl1 = new FlatUI.FlatTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_reset = new FlatUI.FlatButton();
+            this.button_ajouter = new FlatUI.FlatButton();
+            this.comm_rdv = new FlatUI.FlatTextBox();
+            this.list_typeEnt = new System.Windows.Forms.ListBox();
+            this.label_typeEnt = new FlatUI.FlatLabel();
+            this.label_minute = new FlatUI.FlatLabel();
+            this.track_minute = new FlatUI.FlatTrackBar();
+            this.label_heure_minute = new FlatUI.FlatLabel();
+            this.label_heure = new FlatUI.FlatLabel();
+            this.track_heure = new FlatUI.FlatTrackBar();
+            this.date_rdv = new System.Windows.Forms.DateTimePicker();
+            this.label_date = new FlatUI.FlatLabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button_supprimer = new FlatUI.FlatButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commentaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehicule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flatTabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // flatTabControl1
             // 
             this.flatTabControl1.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             this.flatTabControl1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.flatTabControl1.Controls.Add(this.tabPage1);
             this.flatTabControl1.Controls.Add(this.tabPage2);
             this.flatTabControl1.Controls.Add(this.tabPage3);
             this.flatTabControl1.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -52,19 +72,21 @@
             this.flatTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.flatTabControl1.TabIndex = 0;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.tabPage1.Location = new System.Drawing.Point(4, 44);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(575, 258);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Véhicule salarié";
-            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage2.Controls.Add(this.button_reset);
+            this.tabPage2.Controls.Add(this.button_ajouter);
+            this.tabPage2.Controls.Add(this.comm_rdv);
+            this.tabPage2.Controls.Add(this.list_typeEnt);
+            this.tabPage2.Controls.Add(this.label_typeEnt);
+            this.tabPage2.Controls.Add(this.label_minute);
+            this.tabPage2.Controls.Add(this.track_minute);
+            this.tabPage2.Controls.Add(this.label_heure_minute);
+            this.tabPage2.Controls.Add(this.label_heure);
+            this.tabPage2.Controls.Add(this.track_heure);
+            this.tabPage2.Controls.Add(this.date_rdv);
+            this.tabPage2.Controls.Add(this.label_date);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -72,15 +94,234 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Saisi d\'un RDV";
             // 
+            // button_reset
+            // 
+            this.button_reset.BackColor = System.Drawing.Color.Transparent;
+            this.button_reset.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_reset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_reset.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_reset.Location = new System.Drawing.Point(463, 220);
+            this.button_reset.Name = "button_reset";
+            this.button_reset.Rounded = false;
+            this.button_reset.Size = new System.Drawing.Size(106, 32);
+            this.button_reset.TabIndex = 13;
+            this.button_reset.Text = "Réinitialiser";
+            this.button_reset.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
+            // button_ajouter
+            // 
+            this.button_ajouter.BackColor = System.Drawing.Color.Transparent;
+            this.button_ajouter.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_ajouter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_ajouter.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_ajouter.Location = new System.Drawing.Point(463, 143);
+            this.button_ajouter.Name = "button_ajouter";
+            this.button_ajouter.Rounded = false;
+            this.button_ajouter.Size = new System.Drawing.Size(106, 32);
+            this.button_ajouter.TabIndex = 12;
+            this.button_ajouter.Text = "Ajouter";
+            this.button_ajouter.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button_ajouter.Click += new System.EventHandler(this.button_ajouter_Click);
+            // 
+            // comm_rdv
+            // 
+            this.comm_rdv.BackColor = System.Drawing.Color.Transparent;
+            this.comm_rdv.FocusOnHover = false;
+            this.comm_rdv.Location = new System.Drawing.Point(7, 143);
+            this.comm_rdv.MaxLength = 32767;
+            this.comm_rdv.Multiline = true;
+            this.comm_rdv.Name = "comm_rdv";
+            this.comm_rdv.ReadOnly = false;
+            this.comm_rdv.Size = new System.Drawing.Size(450, 109);
+            this.comm_rdv.TabIndex = 11;
+            this.comm_rdv.Text = "Commentaire à propos du rendez-vous...";
+            this.comm_rdv.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.comm_rdv.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.comm_rdv.UseSystemPasswordChar = false;
+            // 
+            // list_typeEnt
+            // 
+            this.list_typeEnt.FormattingEnabled = true;
+            this.list_typeEnt.ItemHeight = 17;
+            this.list_typeEnt.Items.AddRange(new object[] {
+            "1 - Frein",
+            "2 - Pneu",
+            "3 - Huile vidange"});
+            this.list_typeEnt.Location = new System.Drawing.Point(311, 44);
+            this.list_typeEnt.Name = "list_typeEnt";
+            this.list_typeEnt.Size = new System.Drawing.Size(258, 89);
+            this.list_typeEnt.TabIndex = 10;
+            // 
+            // label_typeEnt
+            // 
+            this.label_typeEnt.AutoSize = true;
+            this.label_typeEnt.BackColor = System.Drawing.Color.Transparent;
+            this.label_typeEnt.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label_typeEnt.ForeColor = System.Drawing.Color.White;
+            this.label_typeEnt.Location = new System.Drawing.Point(384, 13);
+            this.label_typeEnt.Name = "label_typeEnt";
+            this.label_typeEnt.Size = new System.Drawing.Size(108, 19);
+            this.label_typeEnt.TabIndex = 9;
+            this.label_typeEnt.Text = "Type d\'entretien";
+            // 
+            // label_minute
+            // 
+            this.label_minute.AutoSize = true;
+            this.label_minute.BackColor = System.Drawing.Color.Transparent;
+            this.label_minute.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label_minute.ForeColor = System.Drawing.Color.White;
+            this.label_minute.Location = new System.Drawing.Point(3, 114);
+            this.label_minute.Name = "label_minute";
+            this.label_minute.Size = new System.Drawing.Size(74, 19);
+            this.label_minute.TabIndex = 7;
+            this.label_minute.Text = "Minute(s) :";
+            // 
+            // track_minute
+            // 
+            this.track_minute.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.track_minute.HatchColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
+            this.track_minute.Location = new System.Drawing.Point(74, 114);
+            this.track_minute.Maximum = 59;
+            this.track_minute.Minimum = 0;
+            this.track_minute.Name = "track_minute";
+            this.track_minute.ShowValue = false;
+            this.track_minute.Size = new System.Drawing.Size(200, 23);
+            this.track_minute.Style = FlatUI.FlatTrackBar._Style.Slider;
+            this.track_minute.TabIndex = 6;
+            this.track_minute.Text = "Heure";
+            this.track_minute.TrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.track_minute.Value = 30;
+            this.track_minute.Scroll += new FlatUI.FlatTrackBar.ScrollEventHandler(this.track_minute_Scroll);
+            // 
+            // label_heure_minute
+            // 
+            this.label_heure_minute.AutoSize = true;
+            this.label_heure_minute.BackColor = System.Drawing.Color.Transparent;
+            this.label_heure_minute.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.label_heure_minute.ForeColor = System.Drawing.Color.White;
+            this.label_heure_minute.Location = new System.Drawing.Point(158, 98);
+            this.label_heure_minute.Name = "label_heure_minute";
+            this.label_heure_minute.Size = new System.Drawing.Size(44, 13);
+            this.label_heure_minute.TabIndex = 5;
+            this.label_heure_minute.Text = "15 h 30";
+            // 
+            // label_heure
+            // 
+            this.label_heure.AutoSize = true;
+            this.label_heure.BackColor = System.Drawing.Color.Transparent;
+            this.label_heure.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label_heure.ForeColor = System.Drawing.Color.White;
+            this.label_heure.Location = new System.Drawing.Point(15, 72);
+            this.label_heure.Name = "label_heure";
+            this.label_heure.Size = new System.Drawing.Size(53, 19);
+            this.label_heure.TabIndex = 4;
+            this.label_heure.Text = "Heure :";
+            // 
+            // track_heure
+            // 
+            this.track_heure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.track_heure.HatchColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(148)))), ((int)(((byte)(92)))));
+            this.track_heure.Location = new System.Drawing.Point(74, 72);
+            this.track_heure.Maximum = 19;
+            this.track_heure.Minimum = 0;
+            this.track_heure.Name = "track_heure";
+            this.track_heure.ShowValue = false;
+            this.track_heure.Size = new System.Drawing.Size(200, 23);
+            this.track_heure.Style = FlatUI.FlatTrackBar._Style.Slider;
+            this.track_heure.TabIndex = 3;
+            this.track_heure.Text = "Heure";
+            this.track_heure.TrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.track_heure.Value = 15;
+            this.track_heure.Scroll += new FlatUI.FlatTrackBar.ScrollEventHandler(this.track_heure_Scroll);
+            // 
+            // date_rdv
+            // 
+            this.date_rdv.Location = new System.Drawing.Point(74, 30);
+            this.date_rdv.Name = "date_rdv";
+            this.date_rdv.Size = new System.Drawing.Size(200, 25);
+            this.date_rdv.TabIndex = 2;
+            // 
+            // label_date
+            // 
+            this.label_date.AutoSize = true;
+            this.label_date.BackColor = System.Drawing.Color.Transparent;
+            this.label_date.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label_date.ForeColor = System.Drawing.Color.White;
+            this.label_date.Location = new System.Drawing.Point(19, 32);
+            this.label_date.Name = "label_date";
+            this.label_date.Size = new System.Drawing.Size(49, 19);
+            this.label_date.TabIndex = 1;
+            this.label_date.Text = "Date : ";
+            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tabPage3.Controls.Add(this.button_supprimer);
+            this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Location = new System.Drawing.Point(4, 44);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(575, 258);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Liste RDV";
+            // 
+            // button_supprimer
+            // 
+            this.button_supprimer.BackColor = System.Drawing.Color.Transparent;
+            this.button_supprimer.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_supprimer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_supprimer.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_supprimer.Location = new System.Drawing.Point(6, 217);
+            this.button_supprimer.Name = "button_supprimer";
+            this.button_supprimer.Rounded = false;
+            this.button_supprimer.Size = new System.Drawing.Size(106, 32);
+            this.button_supprimer.TabIndex = 2;
+            this.button_supprimer.Text = "Supprimer";
+            this.button_supprimer.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.date,
+            this.heure,
+            this.commentaire,
+            this.vehicule});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(563, 205);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            // 
+            // date
+            // 
+            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.date.HeaderText = "Date";
+            this.date.Name = "date";
+            // 
+            // heure
+            // 
+            this.heure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.heure.HeaderText = "Heure";
+            this.heure.Name = "heure";
+            // 
+            // commentaire
+            // 
+            this.commentaire.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.commentaire.HeaderText = "Commentaire";
+            this.commentaire.Name = "commentaire";
+            // 
+            // vehicule
+            // 
+            this.vehicule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.vehicule.HeaderText = "Véhicule";
+            this.vehicule.Name = "vehicule";
             // 
             // formRendezvous
             // 
@@ -95,7 +336,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prise de rendez-vous";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.Load += new System.EventHandler(this.formRendezvous_Load);
             this.flatTabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,8 +349,26 @@
         #endregion
 
         private FlatUI.FlatTabControl flatTabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
+        private FlatUI.FlatLabel label_heure;
+        private FlatUI.FlatTrackBar track_heure;
+        private System.Windows.Forms.DateTimePicker date_rdv;
+        private FlatUI.FlatLabel label_date;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn heure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentaire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicule;
+        private FlatUI.FlatLabel label_heure_minute;
+        private FlatUI.FlatLabel label_typeEnt;
+        private FlatUI.FlatLabel label_minute;
+        private FlatUI.FlatTrackBar track_minute;
+        private System.Windows.Forms.ListBox list_typeEnt;
+        private FlatUI.FlatTextBox comm_rdv;
+        private FlatUI.FlatButton button_reset;
+        private FlatUI.FlatButton button_ajouter;
+        private FlatUI.FlatButton button_supprimer;
     }
 }
