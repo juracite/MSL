@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formRendezvous));
-            this.flatTabControl1 = new FlatUI.FlatTabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tc_rdv = new FlatUI.FlatTabControl();
+            this.tp_rdv = new System.Windows.Forms.TabPage();
             this.button_reset = new FlatUI.FlatButton();
             this.button_ajouter = new FlatUI.FlatButton();
             this.comm_rdv = new FlatUI.FlatTextBox();
@@ -43,56 +43,56 @@
             this.track_heure = new FlatUI.FlatTrackBar();
             this.date_rdv = new System.Windows.Forms.DateTimePicker();
             this.label_date = new FlatUI.FlatLabel();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tp_listrdv = new System.Windows.Forms.TabPage();
+            this.button_quit = new FlatUI.FlatButton();
             this.button_supprimer = new FlatUI.FlatButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_rdv = new System.Windows.Forms.DataGridView();
+            this.imma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commentaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vehicule = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flatTabControl1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tc_rdv.SuspendLayout();
+            this.tp_rdv.SuspendLayout();
+            this.tp_listrdv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_rdv)).BeginInit();
             this.SuspendLayout();
             // 
-            // flatTabControl1
+            // tc_rdv
             // 
-            this.flatTabControl1.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.flatTabControl1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.flatTabControl1.Controls.Add(this.tabPage2);
-            this.flatTabControl1.Controls.Add(this.tabPage3);
-            this.flatTabControl1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.flatTabControl1.ItemSize = new System.Drawing.Size(120, 40);
-            this.flatTabControl1.Location = new System.Drawing.Point(12, 12);
-            this.flatTabControl1.Name = "flatTabControl1";
-            this.flatTabControl1.SelectedIndex = 0;
-            this.flatTabControl1.Size = new System.Drawing.Size(583, 306);
-            this.flatTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.flatTabControl1.TabIndex = 0;
+            this.tc_rdv.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.tc_rdv.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.tc_rdv.Controls.Add(this.tp_rdv);
+            this.tc_rdv.Controls.Add(this.tp_listrdv);
+            this.tc_rdv.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tc_rdv.ItemSize = new System.Drawing.Size(120, 40);
+            this.tc_rdv.Location = new System.Drawing.Point(12, 12);
+            this.tc_rdv.Name = "tc_rdv";
+            this.tc_rdv.SelectedIndex = 0;
+            this.tc_rdv.Size = new System.Drawing.Size(583, 306);
+            this.tc_rdv.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tc_rdv.TabIndex = 0;
             // 
-            // tabPage2
+            // tp_rdv
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.tabPage2.Controls.Add(this.button_reset);
-            this.tabPage2.Controls.Add(this.button_ajouter);
-            this.tabPage2.Controls.Add(this.comm_rdv);
-            this.tabPage2.Controls.Add(this.list_typeEnt);
-            this.tabPage2.Controls.Add(this.label_typeEnt);
-            this.tabPage2.Controls.Add(this.label_minute);
-            this.tabPage2.Controls.Add(this.track_minute);
-            this.tabPage2.Controls.Add(this.label_heure_minute);
-            this.tabPage2.Controls.Add(this.label_heure);
-            this.tabPage2.Controls.Add(this.track_heure);
-            this.tabPage2.Controls.Add(this.date_rdv);
-            this.tabPage2.Controls.Add(this.label_date);
-            this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(575, 258);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Saisi d\'un RDV";
+            this.tp_rdv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tp_rdv.Controls.Add(this.button_reset);
+            this.tp_rdv.Controls.Add(this.button_ajouter);
+            this.tp_rdv.Controls.Add(this.comm_rdv);
+            this.tp_rdv.Controls.Add(this.list_typeEnt);
+            this.tp_rdv.Controls.Add(this.label_typeEnt);
+            this.tp_rdv.Controls.Add(this.label_minute);
+            this.tp_rdv.Controls.Add(this.track_minute);
+            this.tp_rdv.Controls.Add(this.label_heure_minute);
+            this.tp_rdv.Controls.Add(this.label_heure);
+            this.tp_rdv.Controls.Add(this.track_heure);
+            this.tp_rdv.Controls.Add(this.date_rdv);
+            this.tp_rdv.Controls.Add(this.label_date);
+            this.tp_rdv.Location = new System.Drawing.Point(4, 44);
+            this.tp_rdv.Name = "tp_rdv";
+            this.tp_rdv.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_rdv.Size = new System.Drawing.Size(575, 258);
+            this.tp_rdv.TabIndex = 1;
+            this.tp_rdv.Text = "Saisi d\'un RDV";
             // 
             // button_reset
             // 
@@ -107,6 +107,7 @@
             this.button_reset.TabIndex = 13;
             this.button_reset.Text = "Réinitialiser";
             this.button_reset.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button_reset.Click += new System.EventHandler(this.button_reset_Click);
             // 
             // button_ajouter
             // 
@@ -253,17 +254,35 @@
             this.label_date.TabIndex = 1;
             this.label_date.Text = "Date : ";
             // 
-            // tabPage3
+            // tp_listrdv
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-            this.tabPage3.Controls.Add(this.button_supprimer);
-            this.tabPage3.Controls.Add(this.dataGridView1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 44);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(575, 258);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Liste RDV";
+            this.tp_listrdv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this.tp_listrdv.Controls.Add(this.button_quit);
+            this.tp_listrdv.Controls.Add(this.button_supprimer);
+            this.tp_listrdv.Controls.Add(this.dgv_rdv);
+            this.tp_listrdv.Location = new System.Drawing.Point(4, 44);
+            this.tp_listrdv.Name = "tp_listrdv";
+            this.tp_listrdv.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_listrdv.Size = new System.Drawing.Size(575, 258);
+            this.tp_listrdv.TabIndex = 2;
+            this.tp_listrdv.Text = "Liste RDV";
+            // 
+            // button_quit
+            // 
+            this.button_quit.BackColor = System.Drawing.Color.Transparent;
+            this.button_quit.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_quit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_quit.Enabled = false;
+            this.button_quit.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_quit.Location = new System.Drawing.Point(463, 217);
+            this.button_quit.Name = "button_quit";
+            this.button_quit.Rounded = false;
+            this.button_quit.Size = new System.Drawing.Size(106, 32);
+            this.button_quit.TabIndex = 3;
+            this.button_quit.Text = "Quitter";
+            this.button_quit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button_quit.Visible = false;
+            this.button_quit.Click += new System.EventHandler(this.button_quit_Click);
             // 
             // button_supprimer
             // 
@@ -279,56 +298,58 @@
             this.button_supprimer.Text = "Supprimer";
             this.button_supprimer.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             // 
-            // dataGridView1
+            // dgv_rdv
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
+            this.dgv_rdv.AllowUserToAddRows = false;
+            this.dgv_rdv.AllowUserToDeleteRows = false;
+            this.dgv_rdv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_rdv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.imma,
             this.date,
             this.heure,
-            this.commentaire,
-            this.vehicule});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(563, 205);
-            this.dataGridView1.TabIndex = 1;
+            this.commentaire});
+            this.dgv_rdv.Location = new System.Drawing.Point(6, 6);
+            this.dgv_rdv.MultiSelect = false;
+            this.dgv_rdv.Name = "dgv_rdv";
+            this.dgv_rdv.ReadOnly = true;
+            this.dgv_rdv.RowHeadersVisible = false;
+            this.dgv_rdv.Size = new System.Drawing.Size(563, 205);
+            this.dgv_rdv.TabIndex = 1;
             // 
-            // id
+            // imma
             // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
+            this.imma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.imma.HeaderText = "Immatriculation";
+            this.imma.Name = "imma";
+            this.imma.ReadOnly = true;
             // 
             // date
             // 
             this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
+            this.date.ReadOnly = true;
             // 
             // heure
             // 
             this.heure.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.heure.HeaderText = "Heure";
             this.heure.Name = "heure";
+            this.heure.ReadOnly = true;
             // 
             // commentaire
             // 
             this.commentaire.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.commentaire.HeaderText = "Commentaire";
             this.commentaire.Name = "commentaire";
-            // 
-            // vehicule
-            // 
-            this.vehicule.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.vehicule.HeaderText = "Véhicule";
-            this.vehicule.Name = "vehicule";
+            this.commentaire.ReadOnly = true;
             // 
             // formRendezvous
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 330);
-            this.Controls.Add(this.flatTabControl1);
+            this.Controls.Add(this.tc_rdv);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -337,30 +358,25 @@
             this.Text = "Prise de rendez-vous";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Load += new System.EventHandler(this.formRendezvous_Load);
-            this.flatTabControl1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tc_rdv.ResumeLayout(false);
+            this.tp_rdv.ResumeLayout(false);
+            this.tp_rdv.PerformLayout();
+            this.tp_listrdv.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_rdv)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private FlatUI.FlatTabControl flatTabControl1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private FlatUI.FlatTabControl tc_rdv;
+        private System.Windows.Forms.TabPage tp_rdv;
+        private System.Windows.Forms.TabPage tp_listrdv;
         private FlatUI.FlatLabel label_heure;
         private FlatUI.FlatTrackBar track_heure;
         private System.Windows.Forms.DateTimePicker date_rdv;
         private FlatUI.FlatLabel label_date;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn heure;
-        private System.Windows.Forms.DataGridViewTextBoxColumn commentaire;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vehicule;
+        private System.Windows.Forms.DataGridView dgv_rdv;
         private FlatUI.FlatLabel label_heure_minute;
         private FlatUI.FlatLabel label_typeEnt;
         private FlatUI.FlatLabel label_minute;
@@ -370,5 +386,10 @@
         private FlatUI.FlatButton button_reset;
         private FlatUI.FlatButton button_ajouter;
         private FlatUI.FlatButton button_supprimer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn heure;
+        private System.Windows.Forms.DataGridViewTextBoxColumn commentaire;
+        private FlatUI.FlatButton button_quit;
     }
 }

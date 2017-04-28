@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace gestion.cdata
 {
-    class EntretienTypeDb
+    class entretienTypeDb
     {
 
         public void ajouterEntretienType(string libelle, int nbKm)

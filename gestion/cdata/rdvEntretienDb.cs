@@ -14,16 +14,15 @@ namespace gestion.cdata
     class rdvEntretienDb
     {
         //AJOUTER RDVENTRETIEN
-        public void ajouterRdvEntretien(string date, string heure, string commentaire, int idVehicule)
+        public void ajouterRdvEntretien(string date, string heure, string commentaire, string imma)
         {
             try
             {
-                string sql = "INSERT INTO rdventretien (date, heure, commentaire, id_Vehicule) VALUES('" + date + "','" + heure + "','" + commentaire + "','" + idVehicule + "')";
+                string comm_escaped = commentaire.Replace("'", "''");
+                string sql = "INSERT INTO rdventretien (date, heure, commentaire, immatriculation) VALUES('" + date + "','" + heure + "','" + comm_escaped + "','" + imma + "')";
                 MySqlCommand cmdSql = form_gestion.instance.CreateCommand();
                 cmdSql.CommandText = sql;
                 cmdSql.ExecuteNonQuery();
-                MessageBox.Show("Enregistrement ajouté");
-
             }
             catch (MySqlException ex)
             {
@@ -58,7 +57,6 @@ namespace gestion.cdata
                 MySqlCommand cmdSql = form_gestion.instance.CreateCommand();
                 cmdSql.CommandText = sql;
                 cmdSql.ExecuteNonQuery();
-                MessageBox.Show("Modification enregistrée");
             }
             catch (MySqlException ex)
             {
@@ -75,7 +73,6 @@ namespace gestion.cdata
                 MySqlCommand cmdSql = form_gestion.instance.CreateCommand();
                 cmdSql.CommandText = sql;
                 cmdSql.ExecuteNonQuery();
-                MessageBox.Show("Suppression effectuée");
             }
             catch (MySqlException ex)
             {
@@ -100,8 +97,8 @@ namespace gestion.cdata
                     string date = resultat.GetValue(1).ToString();
                     string heure = resultat.GetValue(2).ToString();
                     string commentaire = resultat.GetValue(3).ToString();
-                    int idVehicule = Convert.ToInt32(resultat.GetValue(4));
-                    rE = new rdvEntretien(id, date, heure, commentaire, idVehicule);
+                    string imma = resultat.GetString(4);
+                    rE = new rdvEntretien(id, date, heure, commentaire, imma);
                     lesRdvEntretien.Add(rE);
                 }
                 resultat.Close();
@@ -131,12 +128,12 @@ namespace gestion.cdata
             }
         }
         //TEST SI LE RDV EST PRIS
-        public int getRdvExist(int idVehicule)
+        public int getRdvExist(string imma)
         {
 
             //try
             //{
-            string sql = "SELECT COUNT(*) FROM rdventretien WHERE id_vehicule=" + idVehicule;
+            string sql = "SELECT COUNT(*) FROM rdventretien WHERE immatriculation='" + imma + "'";
             MySqlCommand cmdSql = form_gestion.instance.CreateCommand();
             cmdSql.CommandText = sql;
             MySqlDataReader resultat = cmdSql.ExecuteReader();

@@ -12,15 +12,15 @@ namespace gestion.cmetier
         private string date;
         private string heure;
         private string commentaire;
-        private int idVehicule;
+        private string imma;
 
-        public rdvEntretien(int unId, string uneDate, string uneHeure, string unCommentaire, int unIdVehicule)
+        public rdvEntretien(int unId, string uneDate, string uneHeure, string unCommentaire, string uneImma)
         {
             id = unId;
             date = uneDate;
             heure = uneHeure;
             commentaire = unCommentaire;
-            idVehicule = unIdVehicule;
+            imma = uneImma;
         }
 
         public int getId()
@@ -39,9 +39,9 @@ namespace gestion.cmetier
         {
             return commentaire;
         }
-        public int getIdVehicule()
+        public string getImma()
         {
-            return idVehicule;
+            return imma;
         }
     }
 }
