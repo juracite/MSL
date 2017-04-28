@@ -124,6 +124,7 @@ namespace gestion.cvue.vService
 
         private void combo_service_responsable_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
         }
     }
 }

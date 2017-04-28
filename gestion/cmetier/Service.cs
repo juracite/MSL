@@ -11,8 +11,8 @@ namespace gestion.cmetier
         string type_service, libelle_service;
         public Service(string type_service, string libelle_service)
         {
-            this.Type_service = type_service;
-            this.Libelle_service = libelle_service;
+            Type_service = type_service;
+            Libelle_service = libelle_service;
         }
 
         public string Libelle_service

@@ -58,7 +58,7 @@ namespace gestion.cvue.vService.vAjout
         }
 		void Button_service_vue_ajout_annulerClick(object sender, EventArgs e)
 		{
-			this.Close();
+            Close();
 		}
 		void Button_service_vue_ajout_ajouterClick(object sender, EventArgs e)
 		{
@@ -75,8 +75,8 @@ namespace gestion.cvue.vService.vAjout
 				reader_service_libelle.Close();
 				service.setService(service_type, _service_nomService.Text);
 			}
-			
-			this.Close();
+
+            Close();
 			formService.ActiveForm.Close();
 			formService formServ = new formService();
 			formServ.Show();

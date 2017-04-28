@@ -19,28 +19,28 @@ namespace FlatUI
 		protected override void OnMouseDown(MouseEventArgs e)
 		{
 			base.OnMouseDown(e);
-			State = MouseState.Down;
+			State1 = MouseState.Down;
 			Invalidate();
 		}
 
 		protected override void OnMouseUp(MouseEventArgs e)
 		{
 			base.OnMouseUp(e);
-			State = MouseState.Over;
+			State1 = MouseState.Over;
 			Invalidate();
 		}
 
 		protected override void OnMouseEnter(EventArgs e)
 		{
 			base.OnMouseEnter(e);
-			State = MouseState.Over;
+			State1 = MouseState.Over;
 			Invalidate();
 		}
 
 		protected override void OnMouseLeave(EventArgs e)
 		{
 			base.OnMouseLeave(e);
-			State = MouseState.None;
+			State1 = MouseState.None;
 			Invalidate();
 		}
 
@@ -96,7 +96,46 @@ namespace FlatUI
 			}
 		}
 
-		public void DrawItem_(System.Object sender, System.Windows.Forms.DrawItemEventArgs e)
+        public MouseState State1
+        {
+            get
+            {
+                return State2;
+            }
+
+            set
+            {
+                State2 = value;
+            }
+        }
+
+        public MouseState State2
+        {
+            get
+            {
+                return State;
+            }
+
+            set
+            {
+                State = value;
+            }
+        }
+
+        public MouseState State3
+        {
+            get
+            {
+                return State;
+            }
+
+            set
+            {
+                State = value;
+            }
+        }
+
+        public void DrawItem_(System.Object sender, System.Windows.Forms.DrawItemEventArgs e)
 		{
 			if (e.Index < 0)
 				return;

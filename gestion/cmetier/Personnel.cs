@@ -13,13 +13,13 @@ namespace gestion.cmetier
         int responsable;
         public Personnel(int id, string nom, string prenom, int mobile, string type_service, string mail, int responsable, int id_vehicule, string immatriculation)
         {
-            this.Id_salarie = id;
-            this.Nom = nom;
-            this.Prenom = prenom;
-            this.Type_service = type_service;
-            this.Mail = mail;
-            this.Responsable = responsable;
-            this.Id_vehicule = id_vehicule;
+            Id_salarie = id;
+            Nom = nom;
+            Prenom = prenom;
+            Type_service = type_service;
+            Mail = mail;
+            Responsable = responsable;
+            Id_vehicule = id_vehicule;
             this.immatriculation = immatriculation;
         }
 

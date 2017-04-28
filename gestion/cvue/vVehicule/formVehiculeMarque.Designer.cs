@@ -30,13 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formVehiculeMarque));
             this.dgv_vehicule = new System.Windows.Forms.DataGridView();
-            this.button_vehicule_annuler = new FlatUI.FlatButton();
-            this.infobar_vehicule = new FlatUI.FlatStatusBar();
-            this.button_vehicule_modifier = new FlatUI.FlatButton();
             this.id_vehicule = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modele = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.marque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom_annee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._vehicule_checkbox_affectresp = new FlatUI.FlatCheckBox();
+            this.button_vehicule_ajouter = new FlatUI.FlatButton();
+            this.flatLabel1 = new FlatUI.FlatLabel();
+            this._combo_vehicule_affect_service = new FlatUI.FlatComboBox();
+            this.button_vehicule_affect = new FlatUI.FlatButton();
+            this.button_vehicule_annuler = new FlatUI.FlatButton();
+            this.infobar_vehicule = new FlatUI.FlatStatusBar();
+            this.button_vehicule_modifier = new FlatUI.FlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vehicule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,64 +50,24 @@
             // 
             this.dgv_vehicule.AllowUserToAddRows = false;
             this.dgv_vehicule.AllowUserToDeleteRows = false;
+            this.dgv_vehicule.AllowUserToResizeColumns = false;
+            this.dgv_vehicule.AllowUserToResizeRows = false;
             this.dgv_vehicule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_vehicule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_vehicule,
+            this.imma,
             this.modele,
             this.marque,
             this.nom_annee});
             this.dgv_vehicule.Location = new System.Drawing.Point(12, 12);
+            this.dgv_vehicule.MultiSelect = false;
             this.dgv_vehicule.Name = "dgv_vehicule";
             this.dgv_vehicule.ReadOnly = true;
             this.dgv_vehicule.RowHeadersVisible = false;
             this.dgv_vehicule.Size = new System.Drawing.Size(631, 264);
             this.dgv_vehicule.TabIndex = 0;
             this.dgv_vehicule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_vehicule_CellContentClick);
-            // 
-            // button_vehicule_annuler
-            // 
-            this.button_vehicule_annuler.BackColor = System.Drawing.Color.Transparent;
-            this.button_vehicule_annuler.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.button_vehicule_annuler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_vehicule_annuler.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button_vehicule_annuler.Location = new System.Drawing.Point(531, 282);
-            this.button_vehicule_annuler.Name = "button_vehicule_annuler";
-            this.button_vehicule_annuler.Rounded = false;
-            this.button_vehicule_annuler.Size = new System.Drawing.Size(112, 43);
-            this.button_vehicule_annuler.TabIndex = 12;
-            this.button_vehicule_annuler.Text = "Annuler";
-            this.button_vehicule_annuler.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button_vehicule_annuler.Click += new System.EventHandler(this.button_vehicule_annuler_Click);
-            // 
-            // infobar_vehicule
-            // 
-            this.infobar_vehicule.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.infobar_vehicule.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.infobar_vehicule.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.infobar_vehicule.ForeColor = System.Drawing.Color.White;
-            this.infobar_vehicule.Location = new System.Drawing.Point(0, 378);
-            this.infobar_vehicule.Name = "infobar_vehicule";
-            this.infobar_vehicule.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.infobar_vehicule.ShowTimeDate = false;
-            this.infobar_vehicule.Size = new System.Drawing.Size(655, 23);
-            this.infobar_vehicule.TabIndex = 11;
-            this.infobar_vehicule.Text = "Véhicule : ";
-            this.infobar_vehicule.TextColor = System.Drawing.Color.White;
-            // 
-            // button_vehicule_modifier
-            // 
-            this.button_vehicule_modifier.BackColor = System.Drawing.Color.Transparent;
-            this.button_vehicule_modifier.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.button_vehicule_modifier.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_vehicule_modifier.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.button_vehicule_modifier.Location = new System.Drawing.Point(12, 282);
-            this.button_vehicule_modifier.Name = "button_vehicule_modifier";
-            this.button_vehicule_modifier.Rounded = false;
-            this.button_vehicule_modifier.Size = new System.Drawing.Size(112, 43);
-            this.button_vehicule_modifier.TabIndex = 9;
-            this.button_vehicule_modifier.Text = "Modifier";
-            this.button_vehicule_modifier.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button_vehicule_modifier.Click += new System.EventHandler(this.button_vehicule_modifier_Click);
+            this.dgv_vehicule.SelectionChanged += new System.EventHandler(this.dgv_vehicule_SelectionChanged);
             // 
             // id_vehicule
             // 
@@ -109,6 +75,13 @@
             this.id_vehicule.HeaderText = "Id vehicule";
             this.id_vehicule.Name = "id_vehicule";
             this.id_vehicule.ReadOnly = true;
+            // 
+            // imma
+            // 
+            this.imma.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.imma.HeaderText = "Immatriculation";
+            this.imma.Name = "imma";
+            this.imma.ReadOnly = true;
             // 
             // modele
             // 
@@ -131,21 +104,150 @@
             this.nom_annee.Name = "nom_annee";
             this.nom_annee.ReadOnly = true;
             // 
+            // _vehicule_checkbox_affectresp
+            // 
+            this._vehicule_checkbox_affectresp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+            this._vehicule_checkbox_affectresp.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this._vehicule_checkbox_affectresp.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this._vehicule_checkbox_affectresp.Checked = false;
+            this._vehicule_checkbox_affectresp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._vehicule_checkbox_affectresp.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this._vehicule_checkbox_affectresp.Location = new System.Drawing.Point(315, 313);
+            this._vehicule_checkbox_affectresp.Name = "_vehicule_checkbox_affectresp";
+            this._vehicule_checkbox_affectresp.Options = FlatUI.FlatCheckBox._Options.Style1;
+            this._vehicule_checkbox_affectresp.Size = new System.Drawing.Size(210, 22);
+            this._vehicule_checkbox_affectresp.TabIndex = 19;
+            this._vehicule_checkbox_affectresp.Text = "Affecter au responsable";
+            // 
+            // button_vehicule_ajouter
+            // 
+            this.button_vehicule_ajouter.BackColor = System.Drawing.Color.Transparent;
+            this.button_vehicule_ajouter.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_vehicule_ajouter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_vehicule_ajouter.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_vehicule_ajouter.Location = new System.Drawing.Point(12, 331);
+            this.button_vehicule_ajouter.Name = "button_vehicule_ajouter";
+            this.button_vehicule_ajouter.Rounded = false;
+            this.button_vehicule_ajouter.Size = new System.Drawing.Size(112, 43);
+            this.button_vehicule_ajouter.TabIndex = 18;
+            this.button_vehicule_ajouter.Text = "Ajouter";
+            this.button_vehicule_ajouter.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button_vehicule_ajouter.Click += new System.EventHandler(this.button_vehicule_ajouter_Click);
+            // 
+            // flatLabel1
+            // 
+            this.flatLabel1.AutoSize = true;
+            this.flatLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.flatLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.flatLabel1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.flatLabel1.Location = new System.Drawing.Point(248, 285);
+            this.flatLabel1.Name = "flatLabel1";
+            this.flatLabel1.Size = new System.Drawing.Size(50, 15);
+            this.flatLabel1.TabIndex = 15;
+            this.flatLabel1.Text = "Service :";
+            // 
+            // _combo_vehicule_affect_service
+            // 
+            this._combo_vehicule_affect_service.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this._combo_vehicule_affect_service.Cursor = System.Windows.Forms.Cursors.Hand;
+            this._combo_vehicule_affect_service.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this._combo_vehicule_affect_service.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._combo_vehicule_affect_service.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this._combo_vehicule_affect_service.ForeColor = System.Drawing.Color.White;
+            this._combo_vehicule_affect_service.FormattingEnabled = true;
+            this._combo_vehicule_affect_service.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this._combo_vehicule_affect_service.ItemHeight = 18;
+            this._combo_vehicule_affect_service.Location = new System.Drawing.Point(315, 283);
+            this._combo_vehicule_affect_service.Name = "_combo_vehicule_affect_service";
+            this._combo_vehicule_affect_service.Size = new System.Drawing.Size(210, 24);
+            this._combo_vehicule_affect_service.State1 = FlatUI.MouseState.None;
+            this._combo_vehicule_affect_service.State2 = FlatUI.MouseState.None;
+            this._combo_vehicule_affect_service.State3 = FlatUI.MouseState.None;
+            this._combo_vehicule_affect_service.TabIndex = 14;
+            this._combo_vehicule_affect_service.SelectedIndexChanged += new System.EventHandler(this._combo_vehicule_affect_service_SelectedIndexChanged);
+            // 
+            // button_vehicule_affect
+            // 
+            this.button_vehicule_affect.BackColor = System.Drawing.Color.Transparent;
+            this.button_vehicule_affect.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_vehicule_affect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_vehicule_affect.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_vehicule_affect.Location = new System.Drawing.Point(130, 282);
+            this.button_vehicule_affect.Name = "button_vehicule_affect";
+            this.button_vehicule_affect.Rounded = false;
+            this.button_vehicule_affect.Size = new System.Drawing.Size(112, 43);
+            this.button_vehicule_affect.TabIndex = 13;
+            this.button_vehicule_affect.Text = "Affecter";
+            this.button_vehicule_affect.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button_vehicule_affect.Click += new System.EventHandler(this.button_vehicule_affect_Click);
+            // 
+            // button_vehicule_annuler
+            // 
+            this.button_vehicule_annuler.BackColor = System.Drawing.Color.Transparent;
+            this.button_vehicule_annuler.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_vehicule_annuler.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_vehicule_annuler.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_vehicule_annuler.Location = new System.Drawing.Point(531, 282);
+            this.button_vehicule_annuler.Name = "button_vehicule_annuler";
+            this.button_vehicule_annuler.Rounded = false;
+            this.button_vehicule_annuler.Size = new System.Drawing.Size(112, 43);
+            this.button_vehicule_annuler.TabIndex = 12;
+            this.button_vehicule_annuler.Text = "Annuler";
+            this.button_vehicule_annuler.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button_vehicule_annuler.Click += new System.EventHandler(this.button_vehicule_annuler_Click);
+            // 
+            // infobar_vehicule
+            // 
+            this.infobar_vehicule.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+            this.infobar_vehicule.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.infobar_vehicule.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.infobar_vehicule.ForeColor = System.Drawing.Color.White;
+            this.infobar_vehicule.Location = new System.Drawing.Point(0, 383);
+            this.infobar_vehicule.Name = "infobar_vehicule";
+            this.infobar_vehicule.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.infobar_vehicule.ShowTimeDate = false;
+            this.infobar_vehicule.Size = new System.Drawing.Size(662, 23);
+            this.infobar_vehicule.TabIndex = 11;
+            this.infobar_vehicule.Text = "Véhicule : ";
+            this.infobar_vehicule.TextColor = System.Drawing.Color.White;
+            // 
+            // button_vehicule_modifier
+            // 
+            this.button_vehicule_modifier.BackColor = System.Drawing.Color.Transparent;
+            this.button_vehicule_modifier.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+            this.button_vehicule_modifier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_vehicule_modifier.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.button_vehicule_modifier.Location = new System.Drawing.Point(12, 282);
+            this.button_vehicule_modifier.Name = "button_vehicule_modifier";
+            this.button_vehicule_modifier.Rounded = false;
+            this.button_vehicule_modifier.Size = new System.Drawing.Size(112, 43);
+            this.button_vehicule_modifier.TabIndex = 9;
+            this.button_vehicule_modifier.Text = "Modifier";
+            this.button_vehicule_modifier.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.button_vehicule_modifier.Click += new System.EventHandler(this.button_vehicule_modifier_Click);
+            // 
             // formVehiculeMarque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 401);
+            this.ClientSize = new System.Drawing.Size(662, 406);
+            this.Controls.Add(this._vehicule_checkbox_affectresp);
+            this.Controls.Add(this.button_vehicule_ajouter);
+            this.Controls.Add(this.flatLabel1);
+            this.Controls.Add(this._combo_vehicule_affect_service);
+            this.Controls.Add(this.button_vehicule_affect);
             this.Controls.Add(this.button_vehicule_annuler);
             this.Controls.Add(this.infobar_vehicule);
             this.Controls.Add(this.button_vehicule_modifier);
             this.Controls.Add(this.dgv_vehicule);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "formVehiculeMarque";
-            this.Text = "Gestion - MSL - Véhicule - Marque";
+            this.Text = " Gestion véhicule";
             this.Load += new System.EventHandler(this.formVehiculeMarque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_vehicule)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -155,9 +257,15 @@
         private FlatUI.FlatButton button_vehicule_modifier;
         private FlatUI.FlatStatusBar infobar_vehicule;
         private FlatUI.FlatButton button_vehicule_annuler;
+        private FlatUI.FlatButton button_vehicule_affect;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_vehicule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imma;
         private System.Windows.Forms.DataGridViewTextBoxColumn modele;
         private System.Windows.Forms.DataGridViewTextBoxColumn marque;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom_annee;
+        private FlatUI.FlatComboBox _combo_vehicule_affect_service;
+        private FlatUI.FlatLabel flatLabel1;
+        private FlatUI.FlatButton button_vehicule_ajouter;
+        private FlatUI.FlatCheckBox _vehicule_checkbox_affectresp;
     }
 }

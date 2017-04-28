@@ -24,15 +24,65 @@ namespace gestion.cdata
                 int annee = reader.GetInt32(1);
                 string marque = reader.GetString(2);
                 string modele = reader.GetString(3);
-
-                vehicule = new cmetier.Vehicule(id, annee, marque, modele, "");
+               
+                vehicule = new cmetier.Vehicule(id, annee, 0, 0, marque, modele, "", "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
             return list_vehicule;
         }
 
-        public List<cmetier.Vehicule> getVehiculesById(int id)
+        // *NICO* public List<cmetier.Vehicule> getVehicule()
+        //{
+        //  string req = "select * from vehicules";
+        //  MySqlCommand cmd = form_gestion.instance.CreateCommand();
+        //cmd.CommandText = req;
+        //  MySqlDataReader reader;
+        //reader = cmd.ExecuteReader();
+        //  cmetier.Vehicule vehicule;
+        //  List<cmetier.Vehicule> list_vehicule = new List<cmetier.Vehicule>();
+        //while (reader.Read())
+        //{
+        //      int id = reader.GetInt32(0);
+        //      int annee = reader.GetInt32(1);
+        //      int nbKmCompteur = reader.GetInt32(2);
+        //      string marque = reader.GetString(3);
+        //      string modele = reader.GetString(4);
+        //      string motorisation = reader.GetString(5);
+        //
+        //      vehicule = new cmetier.Vehicule(id, annee, nbKmCompteur, marque, modele, "",motorisation);
+        //        list_vehicule.Add(vehicule);
+        //      }
+        //    reader.Close();
+        //      return list_vehicule;
+        //    }
+        // }
+
+        public string getVehiculeId(string marque, string modele, string annee)
+        {
+            string id = "0";
+
+            string req = "select id from marque_modele where annee=@annee and marque=@marque and modele=@modele";
+            MySqlCommand cmd = form_gestion.instance.CreateCommand();
+            cmd.CommandText = req;
+
+            cmd.Parameters.Add(new MySqlParameter("annee", annee));
+            cmd.Parameters.Add(new MySqlParameter("marque", marque));
+            cmd.Parameters.Add(new MySqlParameter("modele", modele));
+
+            MySqlDataReader reader;
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                id = reader.GetString(0);
+            }
+            reader.Close();
+
+            return id;
+        }
+
+        public cmetier.Vehicule getVehiculeById(int id)
         {
             string req = "select * from marque_modele where id='"+ id +"'";
             MySqlCommand cmd = form_gestion.instance.CreateCommand();
@@ -40,19 +90,22 @@ namespace gestion.cdata
             MySqlDataReader reader;
             reader = cmd.ExecuteReader();
             cmetier.Vehicule vehicule;
-            List<cmetier.Vehicule> list_vehicule = new List<cmetier.Vehicule>();
+            int id_vehicule = 0;
+            int annee = 0;
+            string marque = "";
+            string modele = "";
+
             while (reader.Read())
             {
-                int id_vehicule = reader.GetInt32(0);
-                int annee = reader.GetInt32(1);
-                string marque = reader.GetString(2);
-                string modele = reader.GetString(3);
-
-                vehicule = new cmetier.Vehicule(id_vehicule, annee, marque, modele, "");
-                list_vehicule.Add(vehicule);
+                id_vehicule = reader.GetInt32(0);
+                annee = reader.GetInt32(1);
+                marque = reader.GetString(2);
+                modele = reader.GetString(3);             
             }
             reader.Close();
-            return list_vehicule;
+
+            vehicule = new cmetier.Vehicule(id, annee, 0, 0, marque, modele, "", "diesel");
+            return vehicule;
         }
 
         public List<cmetier.Vehicule> getDisctinctVehiculesMarque()
@@ -68,7 +121,7 @@ namespace gestion.cdata
             {
                 string marque = reader.GetString(0);
 
-                vehicule = new cmetier.Vehicule(0, 0, marque, "", "");
+                vehicule = new cmetier.Vehicule(0, 0, 0, 0, marque, "", "", "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
@@ -89,7 +142,7 @@ namespace gestion.cdata
             {
                 string modele = reader.GetString(0);
 
-                vehicule = new cmetier.Vehicule(0, 0, "", modele, "");
+                vehicule = new cmetier.Vehicule(0, 0, 0, 0, "", modele, "", "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
@@ -111,7 +164,7 @@ namespace gestion.cdata
             {
                 int annee = reader.GetInt16(0);
 
-                vehicule = new cmetier.Vehicule(0, annee, "", "", "");
+                vehicule = new cmetier.Vehicule(0, annee, 0, 0, "", "", "", "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
@@ -158,12 +211,132 @@ namespace gestion.cdata
             {
                 int id = reader.GetInt32(0);
                 string imma = reader.GetString(1);
+                int nbKmEnt = reader.GetInt32(4);
+                int nbKmDernierEnt = reader.GetInt32(8);
 
-                vehicule = new cmetier.Vehicule(id, 0, "", "", imma);
+                vehicule = new cmetier.Vehicule(id, 0, nbKmEnt, nbKmDernierEnt, "", "", imma, "diesel");
                 list_vehicule.Add(vehicule);
             }
             reader.Close();
             return list_vehicule;
+        }
+
+        public void setAffectVehiculeSalarieService(string type_service, string id_vehicule, bool affect_res)
+        {
+            string req;
+            MySqlCommand cmd = form_gestion.instance.CreateCommand();
+
+            if (affect_res)
+            {
+                personnelDb responsableDb = new personnelDb();
+                cmetier.Personnel responsable;
+
+                responsable = responsableDb.getResponsableTypeService(type_service);
+
+                int id_salarie = responsable.Id_salarie;
+
+                req = "UPDATE vehicules SET type_service = @type_service, id_salarie = @id_salarie WHERE id_vehicule = @id_vehicule";
+
+                
+                cmd.CommandText = req;
+
+                cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+                cmd.Parameters.Add(new MySqlParameter("type_service", type_service));
+                cmd.Parameters.Add(new MySqlParameter("id_salarie", id_salarie));
+            }
+            else
+            {
+                req = "UPDATE vehicules SET type_service = @type_service WHERE id_vehicule = @id_vehicule";
+
+                cmd.CommandText = req;
+
+                cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+                cmd.Parameters.Add(new MySqlParameter("type_service", type_service));
+            }
+
+            
+            cmd.ExecuteNonQuery();
+        }
+        public string getVehiculeTypeService(string id_vehicule)
+        {
+            string req = "SELECT type_service FROM vehicules WHERE id_vehicule = @id_vehicule";
+            MySqlCommand cmd = form_gestion.instance.CreateCommand();
+
+            string type_service = "";
+
+            cmd.CommandText = req;
+
+            cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+
+            MySqlDataReader reader;
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                type_service = reader.GetString(0);
+            }
+            reader.Close();
+
+            return type_service;
+        }
+        public string getVehiculeSalarie(string id_vehicule)
+        {
+            string req = "SELECT id_salarie FROM vehicules WHERE id_vehicule = @id_vehicule";
+            string req1 = "SELECT nom, prenom FROM salarie WHERE id_salarie = @id_salarie";
+
+            MySqlCommand cmd = form_gestion.instance.CreateCommand();
+            MySqlDataReader reader;
+
+            string id_salarie = "";
+            string nom_prenom = "";
+
+            // ------------
+            cmd.CommandText = req;
+
+            cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                id_salarie = reader.GetString(0);
+            }
+            reader.Close();
+
+            // ------------
+
+            cmd.CommandText = req1;
+
+            cmd.Parameters.Add(new MySqlParameter("id_salarie", id_salarie));
+
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string nom = reader.GetString(0);
+                string prenom = reader.GetString(1);
+
+                nom_prenom = prenom[0].ToString() + "." + nom;
+            }
+            reader.Close();
+
+            return nom_prenom;
+        }
+        public void setVehicule(string id_vehicule, string imma, string nbkmcompteur, string motorisation, DateTime date_achat)
+        {
+            string req = "INSERT INTO vehicules(id_vehicule, immatriculation, dateAchat, nbKmCompteur, motorisation) VALUES(@id_vehicule, @imma, @date_achat, @nbkmcompteur, @motorisation)";
+            MySqlCommand cmd = form_gestion.instance.CreateCommand();
+            cmd.CommandText = req;
+
+            cmd.Parameters.Add(new MySqlParameter("id_vehicule", id_vehicule));
+            cmd.Parameters.Add(new MySqlParameter("imma", imma));
+
+            cmd.Parameters.Add("@date_achat", MySqlDbType.DateTime).Value=date_achat;
+
+            cmd.Parameters.Add(new MySqlParameter("nbkmcompteur", nbkmcompteur));
+            cmd.Parameters.Add(new MySqlParameter("motorisation", motorisation));
+
+            cmd.ExecuteNonQuery();
         }
     }
 }

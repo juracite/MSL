@@ -67,10 +67,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cdata\AccesDB.cs" />
+    <Compile Include="cdata\entretienDb.cs" />
+    <Compile Include="cdata\EntretienTypeDb.cs" />
     <Compile Include="cdata\personnelDb.cs" />
+    <Compile Include="cdata\rdvEntretienDb.cs" />
     <Compile Include="cdata\serviceDb.cs" />
     <Compile Include="cdata\vehiculeDb.cs" />
+    <Compile Include="cmetier\Entretien.cs" />
+    <Compile Include="cmetier\EntretienType.cs" />
     <Compile Include="cmetier\Personnel.cs" />
+    <Compile Include="cmetier\rdvEntretien.cs" />
     <Compile Include="cmetier\Service.cs" />
     <Compile Include="cmetier\Vehicule.cs" />
     <Compile Include="cvue\vAffectation\FormAffect.cs">
@@ -120,6 +126,24 @@
     </Compile>
     <Compile Include="cvue\vVehicule\formVehiculeMarque.Designer.cs">
       <DependentUpon>formVehiculeMarque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vVehicule\vAjout\formAjoutVehicule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vVehicule\vAjout\formAjoutVehicule.Designer.cs">
+      <DependentUpon>formAjoutVehicule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vVehicule\vListeEntretien\formEntretienListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vVehicule\vListeEntretien\formEntretienListe.Designer.cs">
+      <DependentUpon>formEntretienListe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cvue\vVehicule\vRdv\formRendezvous.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cvue\vVehicule\vRdv\formRendezvous.Designer.cs">
+      <DependentUpon>formRendezvous.cs</DependentUpon>
     </Compile>
     <Compile Include="FlatUI\FlatAlertBox.cs">
       <SubType>Component</SubType>
@@ -229,6 +253,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="cvue\vVehicule\formVehiculeMarque.resx">
       <DependentUpon>formVehiculeMarque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vVehicule\vAjout\formAjoutVehicule.resx">
+      <DependentUpon>formAjoutVehicule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vVehicule\vListeEntretien\formEntretienListe.resx">
+      <DependentUpon>formEntretienListe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cvue\vVehicule\vRdv\formRendezvous.resx">
+      <DependentUpon>formRendezvous.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion.resx">
       <DependentUpon>Gestion.cs</DependentUpon>

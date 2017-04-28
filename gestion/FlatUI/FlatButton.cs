@@ -80,12 +80,13 @@ namespace FlatUI
 
 		protected override void OnPaint(PaintEventArgs e)
 		{
-			if(this.red){
-				this.UpdateColorsRed();
-			} else if(this.blue) {
-				this.UpdateColorsBlue();
+			if(red)
+            {
+                UpdateColorsRed();
+			} else if(blue) {
+                UpdateColorsBlue();
 			} else {
-				this.UpdateColors();
+                UpdateColors();
 			}
 
 			Bitmap B = new Bitmap(Width, Height);
