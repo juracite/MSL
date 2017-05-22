@@ -27,6 +27,8 @@ namespace gestion
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+
+            button_annuler.red = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,6 +84,29 @@ namespace gestion
         {
             cvue.vVehicule.vListeEntretien.formEntretienListe formEnt = new cvue.vVehicule.vListeEntretien.formEntretienListe();
             formEnt.Show();
+        }
+
+        private void button_connexion_Click(object sender, EventArgs e)
+        {
+            if (textbox_login.Text == "msl_user_gestion" && textbox_mdp.Text == "msl_mdp_gestion")
+            {
+                if(alert_info.Visible == false)
+                {
+                    alert_info.Visible = true;
+                }
+                strip_menu.Enabled = true;
+                alert_info.kind = FlatUI.FlatAlertBox._Kind.Success;
+                alert_info.Text = "Vous êtes bien connecté, vous pouvez à présent utiliser le programme";
+
+            } else {
+                if (alert_info.Visible == false)
+                {
+                    alert_info.Visible = true;
+                }
+                alert_info.kind = FlatUI.FlatAlertBox._Kind.Error;
+                alert_info.Text = "Mot de passe ou login erronée, veuillez réessayer";
+
+            }
         }
     }
 }
